@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://0umul6a4yvdu"]
+
+[ext_resource type="PackedScene" uid="uid://biahn1llnlh46" path="res://scenes/boat.tscn" id="1_ynirp"]
+[ext_resource type="Script" uid="uid://dbwt21521y2kc" path="res://scripts/CamaraFollow.gd" id="2_ehbnb"]
+
+[node name="Replay" type="Node3D" unique_id=715910352]
+
+[node name="CharacterBody3D" parent="." unique_id=913642917 instance=ExtResource("1_ynirp")]
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1041818811]
+transform = Transform3D(0.8660254, -0.17101008, 0.46984634, 0, 0.9396927, 0.34202015, -0.5, -0.29619813, 0.8137977, 3, 2, 4)
+current = true
+script = ExtResource("2_ehbnb")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=82975134]
+transform = Transform3D(0.70710677, 0.49999997, 0.49999997, 0, 0.70710677, -0.70710677, -0.70710677, 0.49999997, 0.49999997, 0, 0, 0)

@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="last_land"
-run/main_scene="uid://bduaxxo2oxpv6"
+run/main_scene="uid://sw8vfxyslj71"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -27,6 +27,11 @@ SaveManager="*res://autoload/SaveManager.gd"
 SceneManager="*res://autoload/SceneManager.gd"
 Settings="*res://autoload/Settings.gd"
 PerformanceManager="*uid://cs8xuy31q05te"
+
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
 
 [editor]
 
@@ -86,4 +91,3 @@ pause={
 [rendering]
 
 rendering_device/driver.windows="d3d12"
-renderer/rendering_method="mobile"
