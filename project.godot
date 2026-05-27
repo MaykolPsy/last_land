@@ -26,7 +26,7 @@ GameStateManager="*res://autoload/GameStateManager.gd"
 SaveManager="*res://autoload/SaveManager.gd"
 SceneManager="*res://autoload/SceneManager.gd"
 Settings="*res://autoload/Settings.gd"
-PerformanceManager="*uid://nsgsqdxmged3"
+PerformanceManager="*uid://cs8xuy31q05te"
 
 [editor]
 
