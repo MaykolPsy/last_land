@@ -11,8 +11,21 @@ config_version=5
 [application]
 
 config/name="last_land"
+run/main_scene="uid://c581ho1j78bdx"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[autoload]
+
+EventBus="*uid://b5ampvenyikjj"
+GameStateManager="*uid://bcybag3ww01us"
+SaveManager="*uid://f35f7qmhgugm"
+SceneManager="*uid://cotrogxmk27tt"
+Settings="*uid://ds5snp1rkerva"
+
+[editor]
+
+version_control/autoload_on_startup=true
 
 [physics]
 
