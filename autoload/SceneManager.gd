@@ -10,6 +10,7 @@ var current_scene: String = ""
 
 func _ready() -> void:
 	_setup_fade()
+	fade_rect.visible = false # <------- era esto 
 	print("SceneManager ready")
 	
 	#------------------
