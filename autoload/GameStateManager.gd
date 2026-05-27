@@ -1,11 +1,26 @@
 extends Node
 
+enum GameState{
+	BOOT,
+	MENU,
+	STORY,
+	INFINITE,
+	PAUSED,
+	GAME_OVER
+}
 
-# Called when the node enters the scene tree for the first time.
+var current_state: GameState = GameState.BOOT
+
 func _ready() -> void:
-	pass # Replace with function body.
+	EventBus.player_died.connect(_on_player_died)
+	
+func set_state(new_state : GameState)	-> void:
+	if current_state == new_state:
+		return
+		
+	current_state = new_state
+	print("Game State -> ",GameState.keys()[current_state])	
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+	
+func _on_player_died() -> void:
+	set_state(GameState.GAME_OVER)
