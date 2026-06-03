@@ -15,6 +15,9 @@ class_name BoatController
 @export var paddle_strength: float = 0.4
 @export var paddle_speed: float = 6.0
 
+@onready var hitbox = $HitboxArea
+@onready var hurtbox = $HurtboxArea
+
 
 var current_speed: float = 0.0
 var direction_input: float = 0.0
@@ -29,6 +32,8 @@ var time_passed: float = 0.0
 
 func _ready() -> void:
 	base_visual_y = visual_root.position.y
+	hitbox.hit_detected.connect(_on_hit_detected)
+	hurtbox.near_miss.connect(_on_near_miss)
 	
 	
 func _physics_process(delta: float) -> void:
@@ -75,3 +80,9 @@ func handle_visuals(delta: float) -> void:
 	paddles.rotation.y = sin(time_passed * paddle_speed) * 0.1 * speed_factor
 	# animación de remos desactivada por ahora
 	# paddles.rotation.x = sin(time_passed * paddle_speed) * paddle_strength * speed_factor
+
+func _on_hit_detected(area):
+	print("COLLISION WITH: ", area.name)
+
+func _on_near_miss(area):
+	print("NEAR MISS -> ", area.name)
