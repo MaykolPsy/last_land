@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://biahn1llnlh46"]
 
 [ext_resource type="PackedScene" uid="uid://dauona3rgg4g7" path="res://assets/kenney_pirate-kit/Models/GLB format/boat-row-large.glb" id="1_0063d"]
-[ext_resource type="Script" uid="uid://coymeu2h7stlx" path="res://scripts/player/hitbox_3d.gd" id="2_qyrje"]
-[ext_resource type="Script" uid="uid://cltni2qnkft6o" path="res://scripts/hurtbox_3d.gd" id="3_lw6pk"]
+[ext_resource type="Script" uid="uid://bfpg23owv32va" path="res://scripts/player/hitbox_3d.gd" id="2_qyrje"]
+[ext_resource type="Script" uid="uid://b45a346jjfgje" path="res://scripts/player/hurtbox_3d.gd" id="3_lw6pk"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_elqb8"]
 size = Vector3(1, 1, 3)
