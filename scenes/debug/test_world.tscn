@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://sw8vfxyslj71"]
 
-[ext_resource type="Script" uid="uid://bxw08u628x57l" path="res://scenes/debug/test_world.gd" id="1_2g2i6"]
+[ext_resource type="Script" uid="uid://bxw08u628x57l" path="res://scripts/player/test_world.gd" id="1_2g2i6"]
 [ext_resource type="PackedScene" uid="uid://biahn1llnlh46" path="res://scenes/boat.tscn" id="1_hbuyn"]
 [ext_resource type="PackedScene" uid="uid://blvcklokt44k0" path="res://scenes/debug/test_obstacle.tscn" id="2_1m1mi"]
 [ext_resource type="Script" uid="uid://dbwt21521y2kc" path="res://scripts/CamaraFollow.gd" id="2_hbuyn"]

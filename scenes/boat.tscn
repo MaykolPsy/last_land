@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://biahn1llnlh46"]
 
 [ext_resource type="PackedScene" uid="uid://dauona3rgg4g7" path="res://assets/kenney_pirate-kit/Models/GLB format/boat-row-large.glb" id="1_0063d"]
-[ext_resource type="Script" uid="uid://coymeu2h7stlx" path="res://scenes/hitbox_3d.gd" id="2_qyrje"]
-[ext_resource type="Script" uid="uid://cltni2qnkft6o" path="res://scenes/hurtbox_3d.gd" id="3_lw6pk"]
+[ext_resource type="Script" uid="uid://coymeu2h7stlx" path="res://scripts/player/hitbox_3d.gd" id="2_qyrje"]
+[ext_resource type="Script" uid="uid://cltni2qnkft6o" path="res://scripts/hurtbox_3d.gd" id="3_lw6pk"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_elqb8"]
 size = Vector3(1, 1, 3)
@@ -41,7 +41,5 @@ script = ExtResource("3_lw6pk")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="HurtboxArea" unique_id=2088824869]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 4, 0, -0.5, 0)
 shape = SubResource("BoxShape3D_qyrje")
-
-[connection signal="area_entered" from="HurtboxArea" to="HitboxArea" method="_on_hurtbox_3d_area_entered"]
 
 [editable path="VisualRoot/boat-row-large2"]

@@ -25,6 +25,8 @@ var direction_input: float = 0.0
 var base_visual_y: float = 0.0
 var time_passed: float = 0.0
 
+var is_dead: bool = false
+
 
 @onready var visual_root: Node3D = $VisualRoot
 @onready var paddles: Node3D = get_node("VisualRoot/boat-row-large2/boat-row-large/paddles")
@@ -37,6 +39,8 @@ func _ready() -> void:
 	
 	
 func _physics_process(delta: float) -> void:
+	if is_dead:
+		return
 	handle_input()
 	handle_movement(delta)
 	handle_visuals(delta)
@@ -82,7 +86,15 @@ func handle_visuals(delta: float) -> void:
 	# paddles.rotation.x = sin(time_passed * paddle_speed) * paddle_strength * speed_factor
 
 func _on_hit_detected(area):
-	print("COLLISION WITH: ", area.name)
+	if is_dead:
+		return
+	die()
 
 func _on_near_miss(area):
 	print("NEAR MISS -> ", area.name)
+	
+func die() -> void:
+	is_dead = true
+	print("PLAYER DIED")
+	
+	EventBus.player_died.emit()
