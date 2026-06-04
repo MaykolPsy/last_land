@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://pa4shjqv6g6h"]
+
+[ext_resource type="Script" path="res://scripts/components/CombatComponent.gd" id="1_7icvw"]
+[ext_resource type="Script" uid="uid://bfpg23owv32va" path="res://scripts/player/hitbox_3d.gd" id="1_p154a"]
+[ext_resource type="Script" uid="uid://b45a346jjfgje" path="res://scripts/player/hurtbox_3d.gd" id="2_7icvw"]
+
+[node name="CombatComponent" type="Node3D" unique_id=420130179]
+script = ExtResource("1_7icvw")
+
+[node name="HitboxArea" type="Area3D" parent="." unique_id=1621387345]
+script = ExtResource("1_p154a")
+metadata/_custom_type_script = "uid://bfpg23owv32va"
+
+[node name="HurtboxArea" type="Area3D" parent="." unique_id=1699225290]
+script = ExtResource("2_7icvw")
+metadata/_custom_type_script = "uid://b45a346jjfgje"

@@ -29,8 +29,8 @@ func _physics_process(delta: float) -> void:
 		return
 	super._physics_process(delta)   # llama handle_speed + handle_input + handle_movement
 	handle_visuals(delta)
-	print(delta)
-
+	update_iframe_flash(delta)
+	
 # VehicleBase llama esto automáticamente
 func handle_input(_delta: float = 0.0) -> void:
 	direction_input = Input.get_axis("move_right", "move_left")
@@ -43,6 +43,14 @@ func handle_movement(_delta: float = 0.0) -> void:
 	velocity.x -= velocity.x * drag * _delta
 	velocity.z -= velocity.z * drag * _delta
 	move_and_slide()
+	
+func update_iframe_flash(delta: float) -> void:
+
+	if not is_invincible:
+		visual_root.visible = true
+		return
+
+	visual_root.visible = int(Time.get_ticks_msec() / 80) % 2 == 0
 
 func handle_visuals(delta: float) -> void:
 	time_passed += delta
@@ -54,14 +62,13 @@ func handle_visuals(delta: float) -> void:
 	paddles.rotation.y = sin(time_passed * paddle_speed) * 0.1 * speed_factor
 
 func _on_hit_detected(_area):
+	print("HIT DETECTED")
+	print("INVINCIBLE = ", is_invincible)
 	if state == State.DEAD:
+		return
+	if is_invincible:
 		return
 	die()
 
 func _on_near_miss(area):
 	print("NEAR MISS -> ", area.name)
-
-func die() -> void:
-	set_state(State.DEAD)
-	print("PLAYER DIED")
-	EventBus.player_died.emit()
