@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://blvcklokt44k0" path="res://scenes/debug/test_obstacle.tscn" id="2_1m1mi"]
 [ext_resource type="Script" uid="uid://dbwt21521y2kc" path="res://scripts/CamaraFollow.gd" id="2_hbuyn"]
 [ext_resource type="Script" uid="uid://de0rpq8t5n54h" path="res://scripts/player/BoatController.gd" id="3_2g2i6"]
+[ext_resource type="Script" uid="uid://rnke4uepn5iy" path="res://scripts/world/ObjectPool.gd" id="5_1m1mi"]
 
 [sub_resource type="GDScript" id="GDScript_2g2i6"]
 script/source = "extends Node3D
@@ -26,6 +27,10 @@ albedo_color = Color(0.19607843, 1, 1, 1)
 
 [node name="TestWorld" type="Node3D" unique_id=1000435002]
 script = SubResource("GDScript_2g2i6")
+
+[node name="ObjectPool" type="Node3D" parent="." unique_id=1962263795]
+script = ExtResource("5_1m1mi")
+scene = ExtResource("2_1m1mi")
 
 [node name="TestObstacle" parent="." unique_id=744918182 instance=ExtResource("2_1m1mi")]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, -30)
