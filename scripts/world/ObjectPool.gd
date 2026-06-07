@@ -3,7 +3,7 @@ extends Node
 class_name ObjectPool
 
 @export var scene: PackedScene
-@export var initial_size: int = 20
+@export var initial_size: int = 50
 
 var available_objects: Array[Node] = []
 
@@ -13,7 +13,7 @@ func _ready() -> void:
 		push_error("ObjectPool requires a PackedScene.")
 		return
 
-	for i in initial_size:
+	for i in range(initial_size):
 
 		var obj = scene.instantiate()
 

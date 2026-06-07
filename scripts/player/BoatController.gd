@@ -9,6 +9,9 @@ class_name BoatController
 @export var tilt_strength: float = 0.1
 @export var paddle_speed: float = 6.0
 
+@export var max_turn_angle: float = 60.0
+var current_yaw: float = 0.0
+
 @onready var hitbox = $HitboxArea
 @onready var hurtbox = $HurtboxArea
 @onready var visual_root: Node3D = $VisualRoot
@@ -36,14 +39,25 @@ func handle_input(_delta: float = 0.0) -> void:
 	direction_input = Input.get_axis("move_right", "move_left")
 
 # VehicleBase llama esto automáticamente
+
 func handle_movement(_delta: float = 0.0) -> void:
-	rotate_y(direction_input * turn_speed * _delta)
-	var forward = -transform.basis.z
+
+	var rotation_change = direction_input * turn_speed * _delta * 57.2958
+
+	rotation_degrees.y = clamp(
+		rotation_degrees.y + rotation_change,
+		-max_turn_angle,
+		max_turn_angle
+	)
+
+	var forward = transform.basis.z
+
 	velocity = forward * current_speed
+
 	velocity.x -= velocity.x * drag * _delta
 	velocity.z -= velocity.z * drag * _delta
+
 	move_and_slide()
-	
 func update_iframe_flash(delta: float) -> void:
 
 	if not is_invincible:

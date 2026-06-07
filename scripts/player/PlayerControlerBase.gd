@@ -35,7 +35,7 @@ func handle_input(_delta: float) -> void:
 	pass
 
 func handle_movement(_delta: float) -> void:
-	var forward = -transform.basis.z
+	var forward = transform.basis.z
 	velocity = forward * current_speed
 	move_and_slide()
 
