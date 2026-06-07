@@ -42,7 +42,7 @@ func handle_input(_delta: float = 0.0) -> void:
 
 func handle_movement(_delta: float = 0.0) -> void:
 
-	var rotation_change = direction_input * turn_speed * _delta * 57.2958
+	var rotation_change = direction_input * turn_speed * _delta * 38
 
 	rotation_degrees.y = clamp(
 		rotation_degrees.y + rotation_change,

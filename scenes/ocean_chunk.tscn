@@ -1,13 +1,18 @@
 [gd_scene format=3 uid="uid://dboft5co1hj25"]
 
+[ext_resource type="Material" uid="uid://bq5us30f0ieau" path="res://materials/ocean_surface.tres" id="1_x21ja"]
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m7eqe"]
 albedo_color = Color(0.41166833, 1, 0.8120168, 1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_x21ja"]
 material = SubResource("StandardMaterial3D_m7eqe")
+size = Vector2(120, 120)
+subdivide_width = 8
+subdivide_depth = 8
 
 [node name="OceanChunk" type="Node3D" unique_id=722872768]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1342489412]
-transform = Transform3D(120, 0, 0, 0, 120, 0, 0, 0, 120, 0, 0, 0)
 mesh = SubResource("PlaneMesh_x21ja")
+surface_material_override/0 = ExtResource("1_x21ja")
