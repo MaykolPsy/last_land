@@ -1,13 +1,11 @@
 [gd_scene format=3 uid="uid://sw8vfxyslj71"]
 
-[ext_resource type="Script" uid="uid://f77nyt32dyog" path="res://scripts/world/WorldStreamer.gd" id="1_3qjp1"]
 [ext_resource type="PackedScene" uid="uid://biahn1llnlh46" path="res://scenes/boat.tscn" id="1_hbuyn"]
 [ext_resource type="PackedScene" uid="uid://blvcklokt44k0" path="res://scenes/debug/test_obstacle.tscn" id="2_1m1mi"]
 [ext_resource type="Script" uid="uid://dbwt21521y2kc" path="res://scripts/CamaraFollow.gd" id="2_hbuyn"]
 [ext_resource type="Script" uid="uid://de0rpq8t5n54h" path="res://scripts/player/BoatController.gd" id="3_2g2i6"]
 [ext_resource type="Script" uid="uid://rnke4uepn5iy" path="res://scripts/world/ObjectPool.gd" id="5_1m1mi"]
 [ext_resource type="PackedScene" uid="uid://dboft5co1hj25" path="res://scenes/ocean_chunk.tscn" id="6_3qjp1"]
-[ext_resource type="PackedScene" uid="uid://nia4md8n4i8w" path="res://scenes/WorldStreamer.tscn" id="6_iddqc"]
 
 [sub_resource type="GDScript" id="GDScript_2g2i6"]
 script/source = "extends Node3D
@@ -23,33 +21,42 @@ func _process(delta: float) -> void:
 	pass
 "
 
+[sub_resource type="PlaneMesh" id="PlaneMesh_3d45a"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3d45a"]
+albedo_color = Color(0.19607843, 1, 1, 1)
+
 [node name="TestWorld" type="Node3D" unique_id=1000435002]
 script = SubResource("GDScript_2g2i6")
+
+[node name="ObjectPool" type="Node3D" parent="." unique_id=1962263795]
+script = ExtResource("5_1m1mi")
+scene = ExtResource("2_1m1mi")
 
 [node name="TestObstacle" parent="." unique_id=744918182 instance=ExtResource("2_1m1mi")]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, -30)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=74380090]
-transform = Transform3D(1, 0, 0, 0, 0.9998477, 0.017452406, 0, -0.017452406, 0.9998477, 90, 90, 120)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -60, 30, 10)
 light_energy = 3.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1817125767]
+transform = Transform3D(50, 0, 0, 0, 1, 0, 0, 0, 50, 0, 0, 0)
+mesh = SubResource("PlaneMesh_3d45a")
+surface_material_override/0 = SubResource("StandardMaterial3D_3d45a")
 
 [node name="CharacterBody3D" parent="." unique_id=913642917 instance=ExtResource("1_hbuyn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 script = ExtResource("3_2g2i6")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1499682574 node_paths=PackedStringArray("target")]
-transform = Transform3D(0.8660253, -0.32139373, 0.38302216, 0, 0.7660443, 0.64278746, -0.49999997, -0.55667025, 0.6634138, 0, 0, 0)
+transform = Transform3D(0.9659258, -0.1294095, 0.22414385, 0, 0.8660253, 0.49999997, -0.25881904, -0.48296288, 0.8365162, 4, 3, 4)
 current = true
 script = ExtResource("2_hbuyn")
 target = NodePath("../CharacterBody3D")
-offset = Vector3(-3, 8, -10)
-smooth_speed = 3.0
 
-[node name="WorldStreamer" parent="." unique_id=1317028444 instance=ExtResource("6_iddqc")]
-script = ExtResource("1_3qjp1")
-chunk_scene = ExtResource("6_3qjp1")
-player_path = NodePath("../CharacterBody3D")
-
-[node name="ObjectPool" type="Node3D" parent="." unique_id=467780674]
-script = ExtResource("5_1m1mi")
-scene = ExtResource("6_3qjp1")
+[node name="OceanChunk" parent="." unique_id=722872768 instance=ExtResource("6_3qjp1")]
+chunk_length = null
+chunks_ahead = null
+chunks_behind = null
+player_path = null
