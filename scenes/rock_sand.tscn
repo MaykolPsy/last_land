@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://bppcw5080j06v"]
+
+[ext_resource type="ArrayMesh" uid="uid://di346c2gcq13v" path="res://assets/kenney_pirate-kit/Models/OBJ format/rocks-sand-a.obj" id="1_v4aw7"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_v4aw7"]
+size = Vector3(0.5, 0.6, 0.4)
+
+[node name="RockSand" type="Node3D" unique_id=605584568]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
+
+[node name="Area3D" type="Area3D" parent="." unique_id=1202461741]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
+collision_layer = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1341377051]
+shape = SubResource("BoxShape3D_v4aw7")
+debug_color = Color(0.9254902, 0.14509805, 0, 0.41960785)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=232673473]
+mesh = ExtResource("1_v4aw7")

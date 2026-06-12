@@ -18,7 +18,7 @@ var next_spawn_z: float = 0.0
 var pool: ObjectPool
 
 func _ready() -> void:
-	pool = get_parent().get_node("ObjectPool")
+	pool = get_parent().get_node("OceanPool")
 
 	player = get_node(player_path)
 	_init_stream()
@@ -126,3 +126,7 @@ func _return_chunk(chunk: Node3D) -> void:
 
 	else:
 		chunk.queue_free()
+
+
+func get_lanes() -> Array:
+	return lanes
