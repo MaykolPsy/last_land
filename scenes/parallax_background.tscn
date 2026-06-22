@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://cc604aw1elu1"]
+
+[ext_resource type="Script" uid="uid://bx18cdhwc4ipu" path="res://scripts/world/ParallaxLayer.gd" id="1_m10ct"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m10ct"]
+albedo_color = Color(0.7285387, 0.7285387, 0.7081511, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_m10ct"]
+material = SubResource("StandardMaterial3D_m10ct")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yqcdc"]
+albedo_color = Color(0.039215688, 0.2509804, 1, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_yqcdc"]
+material = SubResource("StandardMaterial3D_yqcdc")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r7lvs"]
+albedo_color = Color(0.4996859, 0.4996859, 0.4996859, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_r7lvs"]
+material = SubResource("StandardMaterial3D_r7lvs")
+
+[node name="ParallaxBackground" type="Node3D" unique_id=823489167]
+
+[node name="LayerFar" type="Node3D" parent="." unique_id=753081912]
+script = ExtResource("1_m10ct")
+parallax_factor = 0.05
+vertical_factor = 0.02
+smooth_speed = 2.0
+
+[node name="Cloud" type="MeshInstance3D" parent="LayerFar" unique_id=1644286847]
+transform = Transform3D(50, 0, 0, 0, 1, 0, 0, 0, 50, 0, 80, 300)
+mesh = SubResource("QuadMesh_m10ct")
+
+[node name="LayerMid" type="Node3D" parent="." unique_id=157683197]
+script = ExtResource("1_m10ct")
+parallax_factor = 0.12
+vertical_factor = 0.05
+smooth_speed = 3.0
+
+[node name="Horizon" type="MeshInstance3D" parent="LayerMid" unique_id=1875315344]
+transform = Transform3D(100, 0, 0, 0, 1, 0, 0, 0, 100, 0, 20, 500)
+mesh = SubResource("PlaneMesh_yqcdc")
+
+[node name="LayerNear" type="Node3D" parent="." unique_id=916993569]
+script = ExtResource("1_m10ct")
+parallax_factor = 0.2
+vertical_factor = 0.1
+smooth_speed = 4.0
+
+[node name="FogPlane" type="MeshInstance3D" parent="LayerNear" unique_id=824835386]
+transform = Transform3D(80, 0, 0, 0, 1, 0, 0, 0, 80, 0, 10, 150)
+mesh = SubResource("PlaneMesh_r7lvs")
