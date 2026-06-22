@@ -76,13 +76,20 @@ func handle_visuals(delta: float) -> void:
 	paddles.rotation.y = sin(time_passed * paddle_speed) * 0.1 * speed_factor
 
 func _on_hit_detected(_area):
-	print("HIT DETECTED")
-	print("INVINCIBLE = ", is_invincible)
 	if state == State.DEAD:
 		return
+
 	if is_invincible:
 		return
+
+	EventBus.camera_shake.emit(3.0)
+
 	die()
+
+
+
 
 func _on_near_miss(area):
 	print("NEAR MISS -> ", area.name)
+
+	EventBus.camera_shake.emit(0.5)
