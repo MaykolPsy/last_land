@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://b0wr6np2ykhjr" path="res://scenes/rock_obstacle.tscn" id="6_wmbro"]
 [ext_resource type="Script" uid="uid://bns28sbaa268d" path="res://scripts/components/ObstacleSpawner.gd" id="9_wmbro"]
 [ext_resource type="PackedScene" uid="uid://bppcw5080j06v" path="res://scenes/rock_sand.tscn" id="10_yvgxc"]
+[ext_resource type="PackedScene" uid="uid://cc604aw1elu1" path="res://scenes/parallax_background.tscn" id="11_ola18"]
 
 [sub_resource type="GDScript" id="GDScript_2g2i6"]
 script/source = "extends Node3D
@@ -64,3 +65,5 @@ player_path = NodePath("../CharacterBody3D")
 [node name="RockSandPool" type="Node3D" parent="." unique_id=1946683084]
 script = ExtResource("5_1m1mi")
 scene = ExtResource("10_yvgxc")
+
+[node name="ParallaxBackground" parent="." unique_id=823489167 instance=ExtResource("11_ola18")]
