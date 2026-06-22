@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dboft5co1hj25" path="res://scenes/ocean_chunk.tscn" id="6_3qjp1"]
 [ext_resource type="PackedScene" uid="uid://nia4md8n4i8w" path="res://scenes/WorldStreamer.tscn" id="6_iddqc"]
 [ext_resource type="PackedScene" uid="uid://b0wr6np2ykhjr" path="res://scenes/rock_obstacle.tscn" id="6_wmbro"]
-[ext_resource type="Script" uid="uid://yqclrb0wuxkb" path="res://scripts/components/ObstacleSpawner.gd" id="9_wmbro"]
+[ext_resource type="Script" uid="uid://bns28sbaa268d" path="res://scripts/components/ObstacleSpawner.gd" id="9_wmbro"]
 [ext_resource type="PackedScene" uid="uid://bppcw5080j06v" path="res://scenes/rock_sand.tscn" id="10_yvgxc"]
 
 [sub_resource type="GDScript" id="GDScript_2g2i6"]
@@ -41,12 +41,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 script = ExtResource("3_2g2i6")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1499682574 node_paths=PackedStringArray("target")]
-transform = Transform3D(0.8660253, -0.32139373, 0.38302216, 0, 0.7660443, 0.64278746, -0.49999997, -0.55667025, 0.6634138, 0, 0, 0)
+transform = Transform3D(0.8660253, -0.32139376, 0.38302213, 0, 0.7660443, 0.64278746, -0.49999997, -0.5566703, 0.66341376, 0, 0, 0)
 current = true
 script = ExtResource("2_hbuyn")
 target = NodePath("../CharacterBody3D")
-offset = Vector3(-3, 8, -10)
-smooth_speed = 3.0
 
 [node name="ObstacleSpawner" type="Node3D" parent="." unique_id=1695550112]
 script = ExtResource("9_wmbro")

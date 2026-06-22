@@ -8,6 +8,7 @@ signal score_updated(score)
 signal bioma_changed(bioma_name)
 signal item_collected(item_id)
 signal checkpoint_reached(checkpoint_id)
+signal camera_shake(intensity)
 
 #feature extensibility
 
