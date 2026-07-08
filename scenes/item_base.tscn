@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://5p5w34pcavsx"]
+
+[ext_resource type="Script" uid="uid://t72ce4u6g1xi" path="res://scripts/items/ItemBase.gd" id="1_jfgsq"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_i1bqp"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_jfgsq"]
+radius = 1.0
+
+[node name="ItemBase" type="Node3D" unique_id=1656117009]
+script = ExtResource("1_jfgsq")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1300966450]
+mesh = SubResource("BoxMesh_i1bqp")
+
+[node name="Area3D" type="Area3D" parent="MeshInstance3D" unique_id=1459606970]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/Area3D" unique_id=1530889727]
+shape = SubResource("SphereShape3D_jfgsq")
