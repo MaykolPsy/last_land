@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://sw8vfxyslj71"]
 
 [ext_resource type="Script" uid="uid://b1gjc6fmmoqr7" path="res://scripts/world/WorldStreamer.gd" id="1_3qjp1"]
+[ext_resource type="PackedScene" uid="uid://5p5w34pcavsx" path="res://scenes/item_base.tscn" id="1_feke6"]
 [ext_resource type="PackedScene" uid="uid://biahn1llnlh46" path="res://scenes/boat.tscn" id="1_hbuyn"]
 [ext_resource type="Script" uid="uid://dbwt21521y2kc" path="res://scripts/CamaraFollow.gd" id="2_hbuyn"]
 [ext_resource type="Script" uid="uid://de0rpq8t5n54h" path="res://scripts/player/BoatController.gd" id="3_2g2i6"]
@@ -28,6 +29,8 @@ func _process(delta: float) -> void:
 
 [node name="TestWorld" type="Node3D" unique_id=1000435002]
 script = SubResource("GDScript_2g2i6")
+
+[node name="ItemBase" parent="." unique_id=1656117009 instance=ExtResource("1_feke6")]
 
 [node name="OceanPool" type="Node3D" parent="." unique_id=1187628442]
 script = ExtResource("5_1m1mi")
