@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://4soe46wnwfld"]
 
+[ext_resource type="Script" uid="uid://c0rfr5deeumh2" path="res://scripts/items/turboitem.gd" id="1_4xadc"]
 [ext_resource type="ArrayMesh" uid="uid://7msmrrvtixwm" path="res://assets/kenney_pirate-kit/Models/OBJ format/bottle-large.obj" id="1_lvis4"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4xadc"]
@@ -8,6 +9,10 @@
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=2112705827]
 mesh = ExtResource("1_lvis4")
+script = ExtResource("1_4xadc")
+item_id = "turbo"
+nombre = "Turbo"
+duracion = 5.0
 
 [node name="Area3D" type="Area3D" parent="." unique_id=845161091]
 
