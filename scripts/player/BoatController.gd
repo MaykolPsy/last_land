@@ -64,16 +64,31 @@ func update_iframe_flash(delta: float) -> void:
 		visual_root.visible = true
 		return
 
-	visual_root.visible = int(Time.get_ticks_msec() / 80) % 2 == 0
+	visual_root.visible = int	(Time.get_ticks_msec() / 80) % 2 == 0
 
 func handle_visuals(delta: float) -> void:
 	time_passed += delta
-	visual_root.rotation.y = lerp(visual_root.rotation.y, -direction_input * visual_turn_strength, 5.0 * delta)
+
+	visual_root.rotation.y = lerp(
+		visual_root.rotation.y,
+		-direction_input * visual_turn_strength,
+		5.0 * delta
+	)
+
 	visual_root.position.y = base_visual_y - abs(sin(time_passed * bob_speed)) * bob_amount
-	visual_root.rotation.z = lerp(visual_root.rotation.z, -direction_input * tilt_strength, 3.0 * delta)
+
+	visual_root.rotation.z = lerp(
+		visual_root.rotation.z,
+		-direction_input * tilt_strength,
+		3.0 * delta
+	)
+
 	var speed_factor = clamp(current_speed / base_speed, 0.05, 3.0)
+
 	paddles.rotation.x = sin(time_passed * paddle_speed) * 0.4 * speed_factor
 	paddles.rotation.y = sin(time_passed * paddle_speed) * 0.1 * speed_factor
+
+	ScoreManager.add_distance(current_speed * delta)
 
 func _on_hit_detected(_area):
 	if state == State.DEAD:
