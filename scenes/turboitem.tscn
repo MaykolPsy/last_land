@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://4soe46wnwfld"]
+
+[ext_resource type="ArrayMesh" uid="uid://7msmrrvtixwm" path="res://assets/kenney_pirate-kit/Models/OBJ format/bottle-large.obj" id="1_lvis4"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4xadc"]
+
+[node name="turboitem" type="Node3D" unique_id=959812621]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=2112705827]
+mesh = ExtResource("1_lvis4")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=845161091]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1970906441]
+shape = SubResource("CapsuleShape3D_4xadc")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=309279872]
+
+[node name="CPUParticles3D" type="CPUParticles3D" parent="." unique_id=341368571]

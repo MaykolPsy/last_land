@@ -14,7 +14,15 @@ class_name ItemBase
 func _ready() -> void:
 	if pickup_area == null:
 		push_error("ItemBase requiere un nodo Area3D como hijo.")
+		return
+
+	pickup_area.body_entered.connect(_on_body_entered)
 
 
-func collect(player) -> void:
+func _on_body_entered(body: Node) -> void:
+	if body is PlayerControllerBase:
+		collect(body)
+
+
+func collect(player: PlayerControllerBase) -> void:
 	pass
