@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://sw8vfxyslj71"]
 
 [ext_resource type="Script" uid="uid://b1gjc6fmmoqr7" path="res://scripts/world/WorldStreamer.gd" id="1_3qjp1"]
-[ext_resource type="PackedScene" uid="uid://5p5w34pcavsx" path="res://scenes/item_base.tscn" id="1_feke6"]
 [ext_resource type="PackedScene" uid="uid://biahn1llnlh46" path="res://scenes/boat.tscn" id="1_hbuyn"]
 [ext_resource type="Script" uid="uid://dbwt21521y2kc" path="res://scripts/CamaraFollow.gd" id="2_hbuyn"]
 [ext_resource type="Script" uid="uid://de0rpq8t5n54h" path="res://scripts/player/BoatController.gd" id="3_2g2i6"]
@@ -12,6 +11,10 @@
 [ext_resource type="Script" uid="uid://bns28sbaa268d" path="res://scripts/components/ObstacleSpawner.gd" id="9_wmbro"]
 [ext_resource type="PackedScene" uid="uid://bppcw5080j06v" path="res://scenes/rock_sand.tscn" id="10_yvgxc"]
 [ext_resource type="PackedScene" uid="uid://cc604aw1elu1" path="res://scenes/parallax_background.tscn" id="11_ola18"]
+[ext_resource type="Script" uid="uid://c2ajmrxxpy8yy" path="res://scripts/items/itemSpawner.gd" id="13_ei6m5"]
+[ext_resource type="PackedScene" uid="uid://3fp342rv4w30" path="res://scenes/hud.tscn" id="13_ybp56"]
+[ext_resource type="PackedScene" uid="uid://cj4jscn73sln5" path="res://scenes/shielditem.tscn" id="14_dsh1m"]
+[ext_resource type="PackedScene" uid="uid://4soe46wnwfld" path="res://scenes/turboitem.tscn" id="15_y3281"]
 
 [sub_resource type="GDScript" id="GDScript_2g2i6"]
 script/source = "extends Node3D
@@ -29,8 +32,6 @@ func _process(delta: float) -> void:
 
 [node name="TestWorld" type="Node3D" unique_id=1000435002]
 script = SubResource("GDScript_2g2i6")
-
-[node name="ItemBase" parent="." unique_id=1656117009 instance=ExtResource("1_feke6")]
 
 [node name="OceanPool" type="Node3D" parent="." unique_id=1187628442]
 script = ExtResource("5_1m1mi")
@@ -70,3 +71,9 @@ script = ExtResource("5_1m1mi")
 scene = ExtResource("10_yvgxc")
 
 [node name="ParallaxBackground" parent="." unique_id=823489167 instance=ExtResource("11_ola18")]
+
+[node name="HUD" parent="." unique_id=107990537 instance=ExtResource("13_ybp56")]
+
+[node name="itemspawner" type="Node3D" parent="." unique_id=2061021850]
+script = ExtResource("13_ei6m5")
+items = Array[PackedScene]([ExtResource("14_dsh1m"), ExtResource("15_y3281")])

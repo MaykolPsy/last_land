@@ -1,0 +1,91 @@
+[gd_scene format=3 uid="uid://3fp342rv4w30"]
+
+[ext_resource type="Script" uid="uid://b10lyjs04oiqo" path="res://scripts/core/hud.gd" id="1_ahhtf"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_oo0fn"]
+font_size = 45
+shadow_size = 15
+shadow_color = Color(0, 0, 0, 0.2509804)
+shadow_offset = Vector2(2, 5)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ahhtf"]
+font_size = 45
+shadow_size = 15
+shadow_color = Color(0, 0, 0, 0.2509804)
+shadow_offset = Vector2(2, 5)
+
+[sub_resource type="LabelSettings" id="LabelSettings_5ysmq"]
+font_size = 45
+shadow_size = 15
+shadow_color = Color(0, 0, 0, 0.2509804)
+shadow_offset = Vector2(2, 5)
+
+[sub_resource type="LabelSettings" id="LabelSettings_6fi6k"]
+font_size = 45
+shadow_size = 15
+shadow_color = Color(0, 0, 0, 0.2509804)
+shadow_offset = Vector2(2, 5)
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=715042081]
+script = ExtResource("1_ahhtf")
+
+[node name="ScoreLabel" type="Label" parent="." unique_id=1451647808]
+unique_name_in_owner = true
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 23.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "0"
+label_settings = SubResource("LabelSettings_oo0fn")
+horizontal_alignment = 1
+
+[node name="DistanceLabel" type="Label" parent="." unique_id=1600596406]
+unique_name_in_owner = true
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -105.0
+offset_top = -23.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "0 m"
+label_settings = SubResource("LabelSettings_ahhtf")
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="ItemLabel" type="Label" parent="." unique_id=794679659]
+unique_name_in_owner = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -52.5
+offset_top = -11.5
+offset_right = 52.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Item: None"
+label_settings = SubResource("LabelSettings_5ysmq")
+
+[node name="ShieldLabel" type="Label" parent="." unique_id=252912890]
+unique_name_in_owner = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -52.5
+offset_top = -11.5
+offset_right = 52.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+text = "Shield: OFF"
+label_settings = SubResource("LabelSettings_6fi6k")

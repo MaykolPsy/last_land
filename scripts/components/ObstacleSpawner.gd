@@ -21,7 +21,6 @@ var world_streamer: WorldStreamer
 
 var active_obstacles: Array[Node3D] = []
 var furthest_spawn_z := 0.0
-var lane_last_spawn_z: Dictionary = {}
 
 # ---------------------------
 # INIT
