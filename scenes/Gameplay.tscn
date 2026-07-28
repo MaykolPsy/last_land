@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://dq5y1v2r8cupm"]
+
+[ext_resource type="PackedScene" uid="uid://3fp342rv4w30" path="res://scenes/hud.tscn" id="2_a8mty"]
+[ext_resource type="PackedScene" uid="uid://oq2wavge43ub" path="res://scenes/GameOver.tscn" id="3_5sdaa"]
+[ext_resource type="PackedScene" uid="uid://b4phya7nwfpsn" path="res://scenes/PauseMenu.tscn" id="3_jfxgp"]
+[ext_resource type="PackedScene" uid="uid://sw8vfxyslj71" path="res://scenes/debug/test_world.tscn" id="4_a8mty"]
+
+[node name="Gameplay" type="Node3D" unique_id=463549308]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=51420903]
+
+[node name="HUD" parent="CanvasLayer" unique_id=715042081 instance=ExtResource("2_a8mty")]
+
+[node name="PauseMenu" parent="CanvasLayer" unique_id=1683875690 instance=ExtResource("3_jfxgp")]
+
+[node name="GameOver" parent="CanvasLayer" unique_id=1163846951 instance=ExtResource("3_5sdaa")]
+
+[node name="Label" type="Label" parent="CanvasLayer/GameOver" unique_id=67742381]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="restartButton" type="Button" parent="CanvasLayer/GameOver" unique_id=908830009]
+offset_right = 8.0
+offset_bottom = 8.0
+
+[node name="menuButton" type="Button" parent="CanvasLayer/GameOver" unique_id=1506239471]
+offset_right = 8.0
+offset_bottom = 8.0
+
+[node name="TestWorld" parent="." unique_id=1000435002 instance=ExtResource("4_a8mty")]
+
+[connection signal="pressed" from="CanvasLayer/GameOver/restartButton" to="CanvasLayer/GameOver" method="_on_restart_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/GameOver/menuButton" to="CanvasLayer/GameOver" method="_on_menu_button_pressed"]

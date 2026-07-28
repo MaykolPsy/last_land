@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://b4phya7nwfpsn"]
+
+[node name="PauseMenu" type="CanvasLayer" unique_id=671466302]
+
+[node name="pauseMenu" type="Control" parent="." unique_id=1394216614]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="ColorRect" type="ColorRect" parent="pauseMenu" unique_id=1284449145]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="pauseMenu" unique_id=831600359]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="resumeButton" type="Button" parent="pauseMenu" unique_id=685493247]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+
+[node name="menuButton" type="Button" parent="pauseMenu" unique_id=2085622238]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0

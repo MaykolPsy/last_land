@@ -18,6 +18,7 @@ var next_spawn_z: float = 0.0
 var pool: ObjectPool
 
 func _ready() -> void:
+	process_mode = Node.PROCESS_MODE_PAUSABLE
 	pool = get_parent().get_node("OceanPool")
 
 	player = get_node(player_path)
@@ -25,6 +26,8 @@ func _ready() -> void:
 
 
 func _process(_delta: float) -> void:
+	if get_tree().paused:
+		print("WorldStreamer SIGUE corriendo en pausa")
 	_update_stream()
 	
 

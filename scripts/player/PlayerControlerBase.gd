@@ -27,6 +27,7 @@ var is_invincible: bool = false
 
 
 func _ready() -> void:
+	process_mode = Node.PROCESS_MODE_PAUSABLE
 	current_speed = base_speed
 
 
