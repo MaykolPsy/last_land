@@ -89,7 +89,7 @@ func handle_visuals(delta: float) -> void:
 	paddles.rotation.y = sin(time_passed * paddle_speed) * 0.1 * speed_factor
 
 	ScoreManager.add_distance(current_speed * delta)
-
+	
 func _on_hit_detected(_area):
 	if state == State.DEAD:
 		return

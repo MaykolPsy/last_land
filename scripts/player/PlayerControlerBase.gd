@@ -93,6 +93,8 @@ func activate_turbo(duration: float) -> void:
 
 func activate_shield(duration: float) -> void:
 	shield_active = true
+	EventBus.shield_changed.emit(true)
+
 	set_state(State.SHIELDED)
 
 	await get_tree().create_timer(duration).timeout
@@ -101,6 +103,7 @@ func activate_shield(duration: float) -> void:
 		return
 
 	shield_active = false
+	EventBus.shield_changed.emit(false)
 
 	if state == State.SHIELDED:
 		set_state(State.MOVING)
@@ -114,6 +117,8 @@ func die() -> void:
 
 	if shield_active:
 		shield_active = false
+		EventBus.shield_changed.emit(false)
+
 		start_iframes()
 		set_state(State.MOVING)
 		print("Shield absorbed damage")
