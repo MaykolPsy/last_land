@@ -17,7 +17,7 @@ var current_yaw: float = 0.0
 @onready var visual_root: Node3D = $VisualRoot
 @onready var paddles: Node3D = get_node("VisualRoot/boat-row-large2/boat-row-large/paddles")
 
-var direction_input: float = 0.0
+var direction_input = Input.get_axis("move_left", "move_right")
 var base_visual_y: float = 0.0
 var time_passed: float = 0.0
 

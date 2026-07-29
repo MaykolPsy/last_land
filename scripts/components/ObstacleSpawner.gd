@@ -26,6 +26,7 @@ var furthest_spawn_z := 0.0
 # INIT
 # ---------------------------
 func _ready():
+	process_mode = Node.PROCESS_MODE_PAUSABLE
 	player = get_parent().get_node_or_null("CharacterBody3D")
 	world_streamer = get_parent().get_node_or_null("WorldStreamer")
 
@@ -48,14 +49,12 @@ func _initial_spawn():
 # LOOP
 # ---------------------------
 func _process(_delta):
-	if player == null:
-		return
-
+	if get_tree().paused:
+		print("ObstacleSpawner SIGUE corriendo en pausa")
 	_update_level()
 	_update_difficulty()
 	_spawn_if_needed()
 	_cleanup_obstacles()
-
 # ---------------------------
 # LEVEL
 # ---------------------------
