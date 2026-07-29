@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://3fp342rv4w30"]
 
 [ext_resource type="Script" uid="uid://b10lyjs04oiqo" path="res://scripts/core/hud.gd" id="1_ahhtf"]
+[ext_resource type="Texture2D" uid="uid://5xno6xnmf8kq" path="res://assets/BtnPause.png" id="2_oo0fn"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_oo0fn"]
 font_size = 45
@@ -26,6 +27,8 @@ shadow_size = 15
 shadow_color = Color(0, 0, 0, 0.2509804)
 shadow_offset = Vector2(2, 5)
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_oo0fn"]
+
 [node name="CanvasLayer" type="CanvasLayer" unique_id=715042081]
 script = ExtResource("1_ahhtf")
 
@@ -48,8 +51,10 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -105.0
-offset_top = -23.0
+offset_left = -180.0
+offset_top = -95.0
+offset_right = -75.0
+offset_bottom = -32.0
 grow_horizontal = 0
 grow_vertical = 0
 text = "0 m"
@@ -89,3 +94,18 @@ grow_vertical = 2
 size_flags_horizontal = 4
 text = "Shield: OFF"
 label_settings = SubResource("LabelSettings_6fi6k")
+
+[node name="PauseButton" type="Button" parent="." unique_id=1121736025]
+unique_name_in_owner = true
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 100.0
+offset_top = -95.0
+offset_right = 170.0
+offset_bottom = -25.0
+grow_vertical = 0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_oo0fn")
+icon = ExtResource("2_oo0fn")
+icon_alignment = 1
+expand_icon = true

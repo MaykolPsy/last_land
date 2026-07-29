@@ -1,28 +1,98 @@
 [gd_scene format=3 uid="uid://b4phya7nwfpsn"]
 
-[node name="PauseMenu" type="CanvasLayer" unique_id=671466302]
+[ext_resource type="Script" uid="uid://dvqut1h2045xq" path="res://scripts/ui/PauseMenu.gd" id="1_jvnd5"]
+[ext_resource type="Texture2D" uid="uid://bmjrccapmlj6i" path="res://assets/pergamino.webp" id="2_5w6ei"]
+[ext_resource type="Texture2D" uid="uid://kcxe8vhnxaun" path="res://assets/BtnPlay.png" id="2_komsw"]
+[ext_resource type="Texture2D" uid="uid://cbkerx5oncf07" path="res://assets/BtnMenu.png" id="3_5w6ei"]
 
-[node name="pauseMenu" type="Control" parent="." unique_id=1394216614]
+[sub_resource type="LabelSettings" id="LabelSettings_komsw"]
+font_size = 60
+shadow_size = 15
+shadow_color = Color(0, 0, 0, 0.2509804)
+shadow_offset = Vector2(2, 5)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5w6ei"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jiu6o"]
+
+[node name="PauseMenu" type="Control" unique_id=1378695441]
 layout_mode = 3
-anchors_preset = 0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_jvnd5")
 
-[node name="ColorRect" type="ColorRect" parent="pauseMenu" unique_id=1284449145]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-color = Color(0, 0, 0, 1)
+[node name="Panel" type="Panel" parent="." unique_id=1000141581]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="Label" type="Label" parent="pauseMenu" unique_id=831600359]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+[node name="MarginContainer" type="MarginContainer" parent="Panel" unique_id=72055875]
+custom_minimum_size = Vector2(260, 60)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="resumeButton" type="Button" parent="pauseMenu" unique_id=685493247]
-layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
+[node name="Overlay" type="TextureRect" parent="Panel/MarginContainer" unique_id=420488243]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(800, 600)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+size_flags_stretch_ratio = 10.16
+texture = ExtResource("2_5w6ei")
 
-[node name="menuButton" type="Button" parent="pauseMenu" unique_id=2085622238]
-layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer" unique_id=496808631]
+custom_minimum_size = Vector2(520, 360)
+layout_mode = 2
+theme_override_constants/separation = 40
+alignment = 1
+
+[node name="Title" type="Label" parent="Panel/MarginContainer/VBoxContainer" unique_id=831600359]
+unique_name_in_owner = true
+layout_mode = 2
+text = "PAUSE"
+label_settings = SubResource("LabelSettings_komsw")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlayButton" type="Button" parent="Panel/MarginContainer/VBoxContainer" unique_id=932912129]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_5w6ei")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_jiu6o")
+action_mode = 0
+icon = ExtResource("2_komsw")
+icon_alignment = 1
+expand_icon = true
+
+[node name="MenuButton" type="Button" parent="Panel/MarginContainer/VBoxContainer" unique_id=2085622238]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_5w6ei")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_jiu6o")
+action_mode = 0
+icon = ExtResource("3_5w6ei")
+icon_alignment = 1
+expand_icon = true
+
+[connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/MenuButton" to="." method="_on_menu_button_pressed"]

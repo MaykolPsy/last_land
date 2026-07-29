@@ -38,7 +38,7 @@ script = ExtResource("5_1m1mi")
 scene = ExtResource("6_3qjp1")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=74380090]
-transform = Transform3D(0.49999997, 0.4967318, -0.70940655, 0, 0.81915206, 0.57357645, 0.86602545, -0.2867882, 0.409576, 90, 90, 120)
+transform = Transform3D(0.8660254, -0.38302222, 0.32139382, 0, 0.64278764, 0.76604444, -0.5, -0.66341394, 0.5566704, 0, 0, 0)
 light_energy = 2.0
 
 [node name="CharacterBody3D" parent="." unique_id=913642917 instance=ExtResource("1_hbuyn")]

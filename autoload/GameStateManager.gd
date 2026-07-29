@@ -16,12 +16,17 @@ func set_state(new_state: GameState) -> void:
 	current_state = new_state
 	print("Game State -> ", GameState.keys()[current_state])
 
-	# Fuente única de verdad para pausa real
-	if current_state == GameState.PAUSED:
-		get_tree().paused = true
+	# Pausar en PAUSED y GAME_OVER
+	var should_pause := (
+		current_state == GameState.PAUSED
+		or current_state == GameState.GAME_OVER
+	)
+
+	get_tree().paused = should_pause
+
+	if should_pause:
 		EventBus.game_paused.emit()
 	else:
-		get_tree().paused = false
 		EventBus.game_resumed.emit()
 
 func _on_player_died() -> void:
