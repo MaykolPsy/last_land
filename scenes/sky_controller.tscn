@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://b268cmsgdc3k3"]
+
+[ext_resource type="Script" uid="uid://bseuwp1o1prbb" path="res://scripts/world/sky_controller.gd" id="1_4mcpw"]
+
+[sub_resource type="Environment" id="Environment_4e0kk"]
+volumetric_fog_enabled = true
+
+[sub_resource type="FogMaterial" id="FogMaterial_4mcpw"]
+density = 0.12
+albedo = Color(0.9019608, 0.92941177, 1, 1)
+emission = Color(0.2, 0.21960784, 0.2509804, 1)
+height_falloff = 0.012183776
+
+[node name="SkyController" type="Node3D" unique_id=1155094318]
+script = ExtResource("1_4mcpw")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=646255939]
+environment = SubResource("Environment_4e0kk")
+
+[node name="CloudFlog" type="FogVolume" parent="WorldEnvironment" unique_id=1510169886]
+material = SubResource("FogMaterial_4mcpw")
+
+[node name="LightningLigth" type="DirectionalLight3D" parent="." unique_id=1954525718]
+light_color = Color(0.8666667, 0.92156863, 1, 1)
+light_energy = 0.0
+light_bake_mode = 0

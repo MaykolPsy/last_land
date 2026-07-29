@@ -5,6 +5,11 @@ uniform vec4 out_color : source_color = vec4(0.0, 0.2, 1.0, 1.0);
 uniform float amount : hint_range(0.05, 1.0) = 0.4;
 uniform float beer_factor : hint_range(0.0, 10.0, 0.1) = 0.2;
 uniform float alpha : hint_range(0.0, 1.0) = 0.55;
+
+uniform float u_metallic : hint_range(0.0, 1.0) = 0.3;
+uniform float u_specular : hint_range(0.0, 1.0) = 0.15;
+uniform float u_roughness : hint_range(0.0, 1.0) = 0.35;
+
 uniform sampler2D depth_texture : hint_depth_texture;
 
 float generateOffset(float x, float z, float val1, float val2, float time) {
@@ -15,7 +20,7 @@ float generateOffset(float x, float z, float val1, float val2, float time) {
 }
 
 void vertex() {
-	// Usar coordenada global para que no haya costura entre chunks
+	// Coordenada global para evitar costuras entre chunks
 	vec3 world_pos = (MODEL_MATRIX * vec4(VERTEX, 1.0)).xyz;
 
 	float xd = generateOffset(world_pos.x, world_pos.z, 0.2, 0.1, TIME + 0.1);
@@ -29,9 +34,9 @@ void vertex() {
 }
 
 void fragment() {
-	METALLIC = 0.3;
-	SPECULAR = 0.15;
-	ROUGHNESS = 0.35;
+	METALLIC = u_metallic;
+	SPECULAR = u_specular;
+	ROUGHNESS = u_roughness;
 	ALBEDO = out_color.rgb;
 
 	float d = texture(depth_texture, SCREEN_UV).r;
