@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://bduaxxo2oxpv6"]
+
+[ext_resource type="Script" uid="uid://dbnbhuog7gqyh" path="res://scripts/ui/Main.gd" id="1_p0il0"]
+[ext_resource type="PackedScene" uid="uid://dboft5co1hj25" path="res://scenes/ocean_chunk.tscn" id="2_cty7a"]
+[ext_resource type="PackedScene" uid="uid://biahn1llnlh46" path="res://scenes/boat.tscn" id="3_147xw"]
+[ext_resource type="PackedScene" uid="uid://3xp50q51olxb" path="res://scenes/menus/Menu.tscn" id="4_41ciy"]
+[ext_resource type="PackedScene" uid="uid://b268cmsgdc3k3" path="res://scenes/sky_controller.tscn" id="5_krskw"]
+
+[node name="Main" type="Node3D" unique_id=359679838]
+script = ExtResource("1_p0il0")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1683245559]
+transform = Transform3D(0.81915206, -0.1484525, 0.5540323, 0, 0.9659258, 0.25881904, -0.57357645, -0.21201216, 0.7912401, 3, 2, 4)
+current = true
+fov = 70.0
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=2127286669]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35, 35, 0)
+light_energy = 1.6
+
+[node name="OceanChunk" parent="." unique_id=722872768 instance=ExtResource("2_cty7a")]
+
+[node name="BoatPivot" type="Node3D" parent="." unique_id=1653816962]
+transform = Transform3D(0.9396926, 0, -0.34202012, 0, 1, 0, 0.34202012, 0, 0.9396926, 2, 1, 0)
+
+[node name="boat" parent="BoatPivot" unique_id=913642917 instance=ExtResource("3_147xw")]
+
+[node name="Menu" parent="." unique_id=1692924869 instance=ExtResource("4_41ciy")]
+
+[node name="SkyController" parent="." unique_id=1155094318 instance=ExtResource("5_krskw")]
+seconds_to_full_storm = 60.0
+clouds_start_height = 99.0
+clouds_end_height = 52.0
+sky_end_darkness = 7

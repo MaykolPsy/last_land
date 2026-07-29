@@ -10,6 +10,8 @@ extends CanvasLayer
 func _ready():
 	_style_button_line_hover(pause_button)
 	pause_button.pressed.connect(_on_pause_pressed)
+	if EventBus.has_signal("player_died"):
+		EventBus.player_died.connect(_on_player_died)
 
 	EventBus.score_updated.connect(_on_score_updated)
 	EventBus.distance_updated.connect(_on_distance_updated)
@@ -73,3 +75,11 @@ func _style_button_line_hover(btn: Button) -> void:
 	h.border_width_bottom = 0
 	h.border_color = Color("472800ff") # color de línea
 	btn.add_theme_stylebox_override("hover", h)
+
+func _on_player_died() -> void:
+	visible = false
+	var game_over := get_tree().current_scene.find_child("GameOver", true, false)
+	if game_over and game_over.has_method("show_game_over"):
+		game_over.show_game_over()
+	else:
+		push_error("No se encontró GameOver o no tiene show_game_over()")

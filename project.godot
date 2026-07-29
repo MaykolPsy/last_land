@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="last_land"
-run/main_scene="uid://dq5y1v2r8cupm"
+run/main_scene="uid://bduaxxo2oxpv6"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -24,7 +24,6 @@ buses/default_bus_layout="uid://w3lt3qkwbnru"
 EventBus="*res://autoload/EventBus.gd"
 GameStateManager="*res://autoload/GameStateManager.gd"
 SaveManager="*res://autoload/SaveManager.gd"
-SceneManager="*uid://b0qh2w03xha6f"
 Settings="*res://autoload/Settings.gd"
 PerformanceManager="*uid://cs8xuy31q05te"
 ScoreManager="*uid://ca56567rp8y8"
