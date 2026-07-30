@@ -1,7 +1,6 @@
 extends Control
 
-const MAIN_MENU_SCENE := "res://scenes/MainMenu.tscn"
-const GAMEPLAY_SCENE := "res://scenes/Gameplay.tscn"
+const MAIN_MENU_SCENE := "res://scenes/menus/MainMenu.tscn"
 
 @onready var lbl_score: Label = %LblScore
 @onready var lbl_distance: Label = %LblDistance
@@ -34,7 +33,7 @@ func _refresh_stats() -> void:
 
 func _on_retry_pressed() -> void:
 	get_tree().paused = false
-	_goto_scene(GAMEPLAY_SCENE)
+	LevelFlowManager.restart_level()
 
 func _on_main_menu_pressed() -> void:
 	get_tree().paused = false

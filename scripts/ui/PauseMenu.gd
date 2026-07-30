@@ -38,7 +38,7 @@ func _connect_signals() -> void:
 
 func show_pause() -> void:
 	visible = true
-	GameStateManager.set_state(GameStateManager.GameState.PAUSED)
+	GameStateManager.change_state(GameStateManager.GameState.PAUSED)
 	if play_button:
 		play_button.grab_focus()
 
@@ -47,11 +47,11 @@ func _on_play_button_pressed() -> void:
 
 func hide_pause() -> void:
 	visible = false
-	GameStateManager.set_state(GameStateManager.GameState.STORY)
+	GameStateManager.change_state(GameStateManager.GameState.STORY)
 
 func _on_menu_button_pressed() -> void:
 	hide_pause()
-	GameStateManager.set_state(GameStateManager.GameState.MENU)
+	GameStateManager.change_state(GameStateManager.GameState.MENU)
 
 	var sm = get_node_or_null("/root/SceneManager")
 	if sm and sm.has_method("change_scene"):

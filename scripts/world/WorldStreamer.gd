@@ -12,13 +12,12 @@ var player: Node3D
 
 var active_chunks: Array[Node3D] = []
 var next_spawn_z: float = 0.0
-
 var pool: ObjectPool
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_PAUSABLE
 	pool = get_parent().get_node("OceanPool")
-	player = get_node(player_path)
+	player = get_node_or_null(player_path)
 	_init_stream()
 
 func _process(_delta: float) -> void:
@@ -47,8 +46,6 @@ func _needs_more_chunks() -> bool:
 func _spawn_chunk_row() -> void:
 	for lane_x in lanes:
 		var chunk := _get_chunk_from_pool()
-
-		# Si viene de otro padre, lo reparent con keep_global=false
 		if chunk.get_parent() != self:
 			if chunk.get_parent() != null:
 				chunk.get_parent().remove_child(chunk)
@@ -56,15 +53,15 @@ func _spawn_chunk_row() -> void:
 
 		chunk.visible = true
 		chunk.process_mode = Node.PROCESS_MODE_INHERIT
-
-		# IMPORTANTE: local_position exacta
 		chunk.position = Vector3(lane_x, 0.0, next_spawn_z)
 		chunk.rotation = Vector3.ZERO
 		chunk.scale = Vector3.ONE
-
 		active_chunks.append(chunk)
 
 	next_spawn_z += chunk_length
+
+	if Engine.get_process_frames() % 60 == 0:
+		print("[WorldStreamer] chunks=", active_chunks.size(), " next_z=", next_spawn_z)
 
 func _get_chunk_from_pool() -> Node3D:
 	if pool != null:

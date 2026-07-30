@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dtatqo2vc6f0y"
+path="res://.godot/imported/4Story_Wide_2Doors_Roof_Mat.obj-d7fb67430459c90435eed1d477581609.mesh"
+
+[deps]
+
+files=["res://.godot/imported/4Story_Wide_2Doors_Roof_Mat.obj-d7fb67430459c90435eed1d477581609.mesh"]
+
+source_file="res://assets/city/Models with Materials/OBJ/4Story_Wide_2Doors_Roof_Mat.obj"
+dest_files=["res://.godot/imported/4Story_Wide_2Doors_Roof_Mat.obj-d7fb67430459c90435eed1d477581609.mesh", "res://.godot/imported/4Story_Wide_2Doors_Roof_Mat.obj-d7fb67430459c90435eed1d477581609.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

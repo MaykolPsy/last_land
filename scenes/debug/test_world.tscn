@@ -7,14 +7,14 @@
 [ext_resource type="Script" uid="uid://rnke4uepn5iy" path="res://scripts/world/ObjectPool.gd" id="5_1m1mi"]
 [ext_resource type="PackedScene" uid="uid://dboft5co1hj25" path="res://scenes/ocean_chunk.tscn" id="6_3qjp1"]
 [ext_resource type="PackedScene" uid="uid://nia4md8n4i8w" path="res://scenes/WorldStreamer.tscn" id="6_iddqc"]
-[ext_resource type="PackedScene" uid="uid://b0wr6np2ykhjr" path="res://scenes/rock_obstacle.tscn" id="6_wmbro"]
+[ext_resource type="PackedScene" path="res://scenes/Obstacle/obs_rockL2.tscn" id="6_wmbro"]
 [ext_resource type="Script" uid="uid://bns28sbaa268d" path="res://scripts/components/ObstacleSpawner.gd" id="9_wmbro"]
-[ext_resource type="PackedScene" uid="uid://bppcw5080j06v" path="res://scenes/rock_sand.tscn" id="10_yvgxc"]
+[ext_resource type="PackedScene" path="res://scenes/Obstacle/obs_rockL3.tscn" id="10_yvgxc"]
 [ext_resource type="PackedScene" uid="uid://cc604aw1elu1" path="res://scenes/parallax_background.tscn" id="11_ola18"]
 [ext_resource type="Script" uid="uid://c2ajmrxxpy8yy" path="res://scripts/items/itemSpawner.gd" id="13_ei6m5"]
 [ext_resource type="PackedScene" uid="uid://3fp342rv4w30" path="res://scenes/hud.tscn" id="13_ybp56"]
-[ext_resource type="PackedScene" uid="uid://cj4jscn73sln5" path="res://scenes/shielditem.tscn" id="14_dsh1m"]
-[ext_resource type="PackedScene" uid="uid://4soe46wnwfld" path="res://scenes/turboitem.tscn" id="15_y3281"]
+[ext_resource type="PackedScene" uid="uid://cj4jscn73sln5" path="res://scenes/items/shielditem.tscn" id="14_dsh1m"]
+[ext_resource type="PackedScene" uid="uid://4soe46wnwfld" path="res://scenes/items/turboitem.tscn" id="15_y3281"]
 
 [sub_resource type="GDScript" id="GDScript_2g2i6"]
 script/source = "extends Node3D

@@ -4,6 +4,7 @@ extends Camera3D
 @export var offset: Vector3 = Vector3(0, 3, -10)
 @export var smooth_speed: float = 5.0
 
+
 # 🎯 FOV SYSTEM
 @export var normal_fov: float = 75.0
 @export var boost_fov: float = 85.0
@@ -24,6 +25,7 @@ func _on_camera_shake(amount: float):
 	add_shake(amount)
 	
 func _ready() -> void:
+	process_mode = Node.PROCESS_MODE_ALWAYS
 	make_current()
 	base_offset = offset
 	fov = normal_fov

@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cbs4s26br70ub"
+path="res://.godot/imported/CasinoSign.obj-acf89d31510d341c0787e1904bbaa94c.mesh"
+
+[deps]
+
+files=["res://.godot/imported/CasinoSign.obj-acf89d31510d341c0787e1904bbaa94c.mesh"]
+
+source_file="res://assets/city/Textured Models/Base Modular Parts/OBJ/CasinoSign.obj"
+dest_files=["res://.godot/imported/CasinoSign.obj-acf89d31510d341c0787e1904bbaa94c.mesh", "res://.godot/imported/CasinoSign.obj-acf89d31510d341c0787e1904bbaa94c.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

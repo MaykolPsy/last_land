@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bduaxxo2oxpv6"]
 
 [ext_resource type="Script" uid="uid://dbnbhuog7gqyh" path="res://scripts/ui/Main.gd" id="1_p0il0"]
+[ext_resource type="PackedScene" uid="uid://bvgha1lanswh4" path="res://scenes/world/sun.tscn" id="2_147xw"]
 [ext_resource type="PackedScene" uid="uid://dboft5co1hj25" path="res://scenes/ocean_chunk.tscn" id="2_cty7a"]
 [ext_resource type="PackedScene" uid="uid://biahn1llnlh46" path="res://scenes/boat.tscn" id="3_147xw"]
 [ext_resource type="PackedScene" uid="uid://3xp50q51olxb" path="res://scenes/menus/Menu.tscn" id="4_41ciy"]
@@ -14,11 +15,14 @@ transform = Transform3D(0.81915206, -0.1484525, 0.5540323, 0, 0.9659258, 0.25881
 current = true
 fov = 70.0
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=2127286669]
+[node name="sun" parent="." unique_id=292810053 instance=ExtResource("2_147xw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35, 35, 0)
-light_energy = 1.6
+light_energy = 3.0
 
 [node name="OceanChunk" parent="." unique_id=722872768 instance=ExtResource("2_cty7a")]
+out_color = Color(0.055248193, 0.1409486, 0.5568628, 1)
+amount = 0.91
+alpha = 0.88
 
 [node name="BoatPivot" type="Node3D" parent="." unique_id=1653816962]
 transform = Transform3D(0.9396926, 0, -0.34202012, 0, 1, 0, 0.34202012, 0, 0.9396926, 2, 1, 0)
@@ -28,7 +32,11 @@ transform = Transform3D(0.9396926, 0, -0.34202012, 0, 1, 0, 0.34202012, 0, 0.939
 [node name="Menu" parent="." unique_id=1692924869 instance=ExtResource("4_41ciy")]
 
 [node name="SkyController" parent="." unique_id=1155094318 instance=ExtResource("5_krskw")]
-seconds_to_full_storm = 60.0
-clouds_start_height = 99.0
-clouds_end_height = 52.0
-sky_end_darkness = 7
+seconds_to_full_storm = 5.0
+clouds_start_level = 10
+clouds_start_height = 46.0
+clouds_end_height = 68.0
+sky_start_darkness = 10
+lightning_intensity = 3
+player_path = NodePath("../BoatPivot/boat")
+main_sun_path = NodePath("../sun")

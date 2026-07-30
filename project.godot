@@ -27,6 +27,8 @@ SaveManager="*res://autoload/SaveManager.gd"
 Settings="*res://autoload/Settings.gd"
 PerformanceManager="*uid://cs8xuy31q05te"
 ScoreManager="*uid://ca56567rp8y8"
+SceneManager="*uid://8ojgjukld41x"
+LevelFlowManager="*uid://dtv0svboy7gki"
 
 [display]
 
