@@ -1,0 +1,133 @@
+[gd_scene format=3 uid="uid://dtp6ir1f01hmw"]
+
+[ext_resource type="Script" uid="uid://l1w5tblrar67" path="res://scripts/core/LevelRunController.gd" id="1_7ofhs"]
+[ext_resource type="PackedScene" uid="uid://nia4md8n4i8w" path="res://scenes/WorldStreamer.tscn" id="1_35abw"]
+[ext_resource type="Script" uid="uid://b1gjc6fmmoqr7" path="res://scripts/world/WorldStreamer.gd" id="2_chnp5"]
+[ext_resource type="PackedScene" uid="uid://dboft5co1hj25" path="res://scenes/OceanChunk.tscn" id="3_xm557"]
+[ext_resource type="PackedScene" uid="uid://biahn1llnlh46" path="res://scenes/Boat.tscn" id="4_7ofhs"]
+[ext_resource type="Script" uid="uid://dbwt21521y2kc" path="res://scripts/CamaraFollow.gd" id="5_2p1kr"]
+[ext_resource type="Script" uid="uid://rnke4uepn5iy" path="res://scripts/world/ObjectPool.gd" id="5_lqv57"]
+[ext_resource type="Script" uid="uid://bns28sbaa268d" path="res://scripts/components/ObstacleSpawner.gd" id="6_0ng77"]
+[ext_resource type="Script" uid="uid://de0rpq8t5n54h" path="res://scripts/player/BoatController.gd" id="6_g7hu5"]
+[ext_resource type="Script" uid="uid://c2ajmrxxpy8yy" path="res://scripts/items/itemSpawner.gd" id="7_eus8e"]
+[ext_resource type="PackedScene" uid="uid://bqtn0f8qrjt1f" path="res://scenes/Obstacle/obs_3_story_small.tscn" id="8_83tmf"]
+[ext_resource type="PackedScene" uid="uid://b268cmsgdc3k3" path="res://scenes/SkyController.tscn" id="8_chnp5"]
+[ext_resource type="PackedScene" uid="uid://c6e4kr4ihm54r" path="res://scenes/Obstacle/obs_4_story.tscn" id="9_g7hu5"]
+[ext_resource type="PackedScene" uid="uid://3fp342rv4w30" path="res://scenes/Hud.tscn" id="9_xm557"]
+[ext_resource type="PackedScene" uid="uid://bpyuk6f02yx2w" path="res://scenes/Obstacle/obs_4_story_center.tscn" id="10_lqv57"]
+[ext_resource type="PackedScene" uid="uid://0phvl3bja52j" path="res://scenes/Obstacle/obs_6_story_stack.tscn" id="11_3p356"]
+[ext_resource type="Script" uid="uid://bwftl5p0rn5jl" path="res://scripts/ui/VictoryMenu.gd" id="12_3tinv"]
+[ext_resource type="PackedScene" uid="uid://b4r47bb26d4ug" path="res://scenes/Obstacle/obs_city_2story_slim.tscn" id="12_txrj4"]
+[ext_resource type="PackedScene" uid="uid://3xp50q51olxb" path="res://scenes/menus/Menu.tscn" id="12_vdcor"]
+[ext_resource type="PackedScene" uid="uid://oq2wavge43ub" path="res://scenes/menus/GameOverMenu.tscn" id="12_vxfj2"]
+[ext_resource type="PackedScene" uid="uid://b4phya7nwfpsn" path="res://scenes/menus/PauseMenu.tscn" id="13_tms4f"]
+[ext_resource type="PackedScene" uid="uid://cl44qpr7xm4xw" path="res://scenes/Obstacle/obs_rocks_a.tscn" id="13_vxfj2"]
+[ext_resource type="PackedScene" uid="uid://c37eutainhop6" path="res://scenes/Obstacle/obs_rocks_b.tscn" id="14_3tinv"]
+[ext_resource type="PackedScene" uid="uid://dn1431s5c737k" path="res://scenes/menus/VictoryMenu.tscn" id="14_b4i6h"]
+[ext_resource type="PackedScene" uid="uid://b4suio3d33q1f" path="res://scenes/Obstacle/obs_rocks_c.tscn" id="15_e4jcf"]
+[ext_resource type="PackedScene" uid="uid://4soe46wnwfld" path="res://scenes/items/turboitem.tscn" id="22_txrj4"]
+[ext_resource type="PackedScene" uid="uid://cj4jscn73sln5" path="res://scenes/items/shielditem.tscn" id="23_vxfj2"]
+
+[sub_resource type="Environment" id="Environment_83tmf"]
+glow_enabled = true
+glow_intensity = 1.0
+glow_bloom = 0.7
+fog_enabled = true
+
+[node name="Level01Water" type="Node3D" unique_id=58749172]
+script = ExtResource("1_7ofhs")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1855496613]
+environment = SubResource("Environment_83tmf")
+
+[node name="OceanChunk" parent="." unique_id=722872768 instance=ExtResource("3_xm557")]
+
+[node name="WorldStreamer" parent="." unique_id=1317028444 instance=ExtResource("1_35abw")]
+script = ExtResource("2_chnp5")
+chunk_scene = ExtResource("3_xm557")
+player_path = NodePath("../BoatPivot/player")
+
+[node name="OceanPool" type="Node3D" parent="." unique_id=1002086885]
+script = ExtResource("5_lqv57")
+scene = ExtResource("3_xm557")
+
+[node name="Camara" type="Camera3D" parent="." unique_id=130901558 node_paths=PackedStringArray("target")]
+script = ExtResource("5_2p1kr")
+target = NodePath("../BoatPivot/player")
+
+[node name="SkyController" parent="." unique_id=1155094318 instance=ExtResource("8_chnp5")]
+clouds_start_level = 2
+
+[node name="HUD" parent="." unique_id=715042081 instance=ExtResource("9_xm557")]
+
+[node name="UIRoot" type="Control" parent="." unique_id=1577538616]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Menu" parent="UIRoot" unique_id=1692924869 instance=ExtResource("12_vdcor")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 0.0
+offset_right = 0.0
+grow_horizontal = 2
+
+[node name="PauseMenu" parent="UIRoot" unique_id=1378695441 instance=ExtResource("13_tms4f")]
+layout_mode = 1
+
+[node name="VictoryMenu" parent="UIRoot" unique_id=1386192304 instance=ExtResource("14_b4i6h")]
+layout_mode = 1
+script = ExtResource("12_3tinv")
+
+[node name="GameOver" parent="UIRoot" unique_id=1969348789 instance=ExtResource("12_vxfj2")]
+layout_mode = 1
+
+[node name="WorldObs" type="Node3D" parent="." unique_id=1333200959]
+
+[node name="ObstacleSpawner" type="Node3D" parent="WorldObs" unique_id=293478448]
+script = ExtResource("6_0ng77")
+player_path = NodePath("../../BoatPivot/player")
+world_streamer_path = NodePath("../../WorldStreamer")
+obstacles_root_path = NodePath("..")
+spawn_distance_ahead = 600.0
+min_spacing = 10.0
+max_spacing = 20.0
+obstacle_scenes = Array[PackedScene]([ExtResource("8_83tmf"), ExtResource("9_g7hu5"), ExtResource("10_lqv57"), ExtResource("11_3p356"), ExtResource("12_txrj4"), ExtResource("13_vxfj2"), ExtResource("14_3tinv"), ExtResource("15_e4jcf")])
+chunk_half_width = 120.0
+edge_margin = 10.0
+
+[node name="WorldItem" type="Node3D" parent="." unique_id=1017462198]
+
+[node name="ItemSpawner" type="Node3D" parent="WorldItem" unique_id=1788919064]
+script = ExtResource("7_eus8e")
+items = Array[PackedScene]([ExtResource("22_txrj4"), ExtResource("23_vxfj2")])
+player_path = NodePath("../../BoatPivot/player")
+min_spawn_ahead = 30.0
+spawn_interval = 2.0
+spawn_distance_ahead = 140.0
+
+[node name="BoatPivot" type="Node3D" parent="." unique_id=449173391]
+unique_name_in_owner = true
+
+[node name="player" parent="BoatPivot" unique_id=913642917 instance=ExtResource("4_7ofhs")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 2, 0)
+collision_layer = 7
+collision_mask = 7
+wall_min_slide_angle = 0.34906584
+script = ExtResource("6_g7hu5")
+
+[node name="RunController" type="Node" parent="." unique_id=323387453]
+script = ExtResource("1_7ofhs")

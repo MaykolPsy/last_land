@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://c4esnq0ej41kf"
+path="res://.godot/imported/Door3.obj-952ea1a47da3b3ce8c59dba1a6aadbed.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Door3.obj-952ea1a47da3b3ce8c59dba1a6aadbed.mesh"]
+
+source_file="res://assets/city/Textured Models/Base Modular Parts/OBJ/Door3.obj"
+dest_files=["res://.godot/imported/Door3.obj-952ea1a47da3b3ce8c59dba1a6aadbed.mesh", "res://.godot/imported/Door3.obj-952ea1a47da3b3ce8c59dba1a6aadbed.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

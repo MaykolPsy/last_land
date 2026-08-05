@@ -19,3 +19,10 @@ func add_distance(delta_distance: float):
 func add_score(points: int):
 	score += points
 	EventBus.score_updated.emit(score)
+
+func get_distance() -> float:
+	return distance
+	
+func get_score() -> int:
+	return score
+	

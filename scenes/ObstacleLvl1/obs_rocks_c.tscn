@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://b4suio3d33q1f"]
+
+[ext_resource type="Script" uid="uid://b45a346jjfgje" path="res://scripts/player/Hurtbox3d.gd" id="1_x1ss5"]
+[ext_resource type="PackedScene" uid="uid://b2p61hqaiv12r" path="res://assets/kenney_pirate-kit/Models/FBX format/rocks-c.fbx" id="2_33aib"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_7dlyf"]
+radius = 1.7
+height = 7.0
+
+[node name="rocks-c" type="Node3D" unique_id=1124503958]
+
+[node name="Area3D" type="Area3D" parent="." unique_id=187632226]
+collision_layer = 2
+script = ExtResource("1_x1ss5")
+metadata/_custom_type_script = "uid://b45a346jjfgje"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1442994044]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0, 0)
+shape = SubResource("CapsuleShape3D_7dlyf")
+debug_color = Color(0.9607843, 0, 0, 0.41960785)
+
+[node name="rocks-c" parent="." unique_id=978300714 instance=ExtResource("2_33aib")]

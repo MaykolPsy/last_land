@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://bvgha1lanswh4"]
+
+[node name="sun" type="DirectionalLight3D" unique_id=292810053]
+light_color = Color(1, 0.94509804, 0.8392157, 1)
+light_energy = 1.6

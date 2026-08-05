@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://cj4jscn73sln5"]
+
+[ext_resource type="Script" uid="uid://3wmumkl20pxx" path="res://scripts/items/ShieldItem.gd" id="1_r8y8c"]
+[ext_resource type="PackedScene" uid="uid://bvkp6eu1f2m8q" path="res://assets/kenney_pirate-kit/Models/FBX format/barrel.fbx" id="1_sa0mj"]
+[ext_resource type="ArrayMesh" uid="uid://bumk6yxghh2ud" path="res://assets/kenney_pirate-kit/Models/OBJ format/barrel.obj" id="2_w42cg"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_d85va"]
+radius = 0.7
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r8y8c"]
+transparency = 1
+blend_mode = 3
+emission_enabled = true
+emission = Color(0, 0.37254903, 0.99215686, 1)
+emission_energy_multiplier = 8.31
+
+[node name="shielditem" type="Node3D" unique_id=1848240634]
+script = ExtResource("1_r8y8c")
+item_id = "Shield"
+nombre = "Shield"
+duracion = 3.0
+
+[node name="Area3D" type="Area3D" parent="." unique_id=1893074307]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1888241177]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("CapsuleShape3D_d85va")
+debug_color = Color(0.70196074, 0, 0.017973846, 0.41960785)
+
+[node name="barrel" parent="." unique_id=1576180496 instance=ExtResource("1_sa0mj")]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="barrel" unique_id=1982463812]
+mesh = ExtResource("2_w42cg")
+surface_material_override/0 = SubResource("StandardMaterial3D_r8y8c")

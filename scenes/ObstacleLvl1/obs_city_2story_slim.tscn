@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://b4r47bb26d4ug"]
+
+[ext_resource type="Script" uid="uid://b45a346jjfgje" path="res://scripts/player/Hurtbox3d.gd" id="1_0aj8i"]
+[ext_resource type="PackedScene" uid="uid://fp7gmfkn4hyv" path="res://assets/city/Models with Materials/FBX/2Story_Slim_Mat.fbx" id="2_255hr"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3mntd"]
+size = Vector3(0.9, 4, 1.9)
+
+[node name="Node3D" type="Node3D" unique_id=1647397357]
+
+[node name="Area3D" type="Area3D" parent="." unique_id=1351929359]
+collision_layer = 2
+script = ExtResource("1_0aj8i")
+metadata/_custom_type_script = "uid://b45a346jjfgje"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1273732541]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("BoxShape3D_3mntd")
+debug_color = Color(0.9607843, 0, 0, 0.41960785)
+
+[node name="2Story_Slim_Mat" parent="." unique_id=974113605 instance=ExtResource("2_255hr")]

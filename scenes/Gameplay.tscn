@@ -1,17 +1,14 @@
 [gd_scene format=3 uid="uid://dq5y1v2r8cupm"]
 
-[ext_resource type="Script" uid="uid://4to1ea743beq" path="res://scripts/ui/gameplay.gd" id="1_jfxgp"]
-[ext_resource type="PackedScene" uid="uid://biahn1llnlh46" path="res://scenes/boat.tscn" id="2_4rwr5"]
-[ext_resource type="PackedScene" uid="uid://3fp342rv4w30" path="res://scenes/hud.tscn" id="2_a8mty"]
-[ext_resource type="PackedScene" uid="uid://oq2wavge43ub" path="res://scenes/GameOver.tscn" id="3_5sdaa"]
+[ext_resource type="Script" uid="uid://4to1ea743beq" path="res://scripts/ui/GamePlay.gd" id="1_jfxgp"]
+[ext_resource type="PackedScene" uid="uid://3fp342rv4w30" path="res://scenes/Hud.tscn" id="2_a8mty"]
+[ext_resource type="PackedScene" uid="uid://oq2wavge43ub" path="res://scenes/menus/GameOverMenu.tscn" id="3_5sdaa"]
 [ext_resource type="PackedScene" uid="uid://b4phya7nwfpsn" path="res://scenes/menus/PauseMenu.tscn" id="3_jfxgp"]
 [ext_resource type="PackedScene" uid="uid://sw8vfxyslj71" path="res://scenes/debug/test_world.tscn" id="4_a8mty"]
-[ext_resource type="PackedScene" uid="uid://b268cmsgdc3k3" path="res://scenes/sky_controller.tscn" id="6_gnmmn"]
+[ext_resource type="PackedScene" uid="uid://b268cmsgdc3k3" path="res://scenes/SkyController.tscn" id="6_gnmmn"]
 
 [node name="Gameplay" type="Node3D" unique_id=463549308]
 script = ExtResource("1_jfxgp")
-
-[node name="CharacterBody3D" parent="." unique_id=913642917 instance=ExtResource("2_4rwr5")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=51420903]
 
@@ -31,6 +28,5 @@ anchor_bottom = 0.5
 [node name="SkyController" parent="." unique_id=1155094318 instance=ExtResource("6_gnmmn")]
 clouds_start_height = 131.0
 clouds_end_height = 40.0
-player_path = NodePath("../CharacterBody3D")
 
 [editable path="TestWorld"]

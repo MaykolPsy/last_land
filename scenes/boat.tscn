@@ -1,15 +1,17 @@
 [gd_scene format=3 uid="uid://biahn1llnlh46"]
 
-[ext_resource type="PackedScene" uid="uid://dauona3rgg4g7" path="res://assets/kenney_pirate-kit/Models/GLB format/boat-row-large.glb" id="1_0063d"]
-[ext_resource type="Script" uid="uid://bfpg23owv32va" path="res://scripts/player/hitbox_3d.gd" id="2_qyrje"]
-[ext_resource type="Script" uid="uid://b45a346jjfgje" path="res://scripts/player/hurtbox_3d.gd" id="3_lw6pk"]
+[ext_resource type="PackedScene" uid="uid://7mhpmehnej5e" path="res://assets/kenney_pirate-kit/Models/GLB format/ship-medium.glb" id="1_nai5d"]
+[ext_resource type="Script" uid="uid://bfpg23owv32va" path="res://scripts/player/Hitbox3d.gd" id="2_qyrje"]
+[ext_resource type="Script" uid="uid://b45a346jjfgje" path="res://scripts/player/Hurtbox3d.gd" id="3_lw6pk"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_elqb8"]
 size = Vector3(1, 1, 3)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0063d"]
+size = Vector3(5, 14, 8)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qyrje"]
+size = Vector3(5, 14, 8)
 
 [node name="CharacterBody3D" type="CharacterBody3D" unique_id=913642917]
 collision_mask = 2
@@ -21,15 +23,14 @@ shape = SubResource("BoxShape3D_elqb8")
 [node name="VisualRoot" type="Node3D" parent="." unique_id=58846786]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.3, 0)
 
-[node name="boat-row-large2" parent="VisualRoot" unique_id=309179884 instance=ExtResource("1_0063d")]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+[node name="ship-medium2" parent="VisualRoot" unique_id=41134234 instance=ExtResource("1_nai5d")]
 
 [node name="HitboxArea" type="Area3D" parent="." unique_id=174244384]
 collision_mask = 2
 script = ExtResource("2_qyrje")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="HitboxArea" unique_id=900382815]
-transform = Transform3D(2, 0, 0, 0, 1.5, 0, 0, 0, 3.5, 0, -0.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 shape = SubResource("BoxShape3D_0063d")
 
 [node name="HurtboxArea" type="Area3D" parent="." unique_id=386413329]
@@ -37,7 +38,5 @@ collision_mask = 8
 script = ExtResource("3_lw6pk")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="HurtboxArea" unique_id=2088824869]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 4, 0, -0.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 shape = SubResource("BoxShape3D_qyrje")
-
-[editable path="VisualRoot/boat-row-large2"]

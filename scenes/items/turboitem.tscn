@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://4soe46wnwfld"]
+
+[ext_resource type="Script" uid="uid://c0rfr5deeumh2" path="res://scripts/items/TurboItem.gd" id="1_68d3g"]
+[ext_resource type="PackedScene" uid="uid://xpoj1ncc6px4" path="res://assets/kenney_pirate-kit/Models/FBX format/tool-shovel.fbx" id="1_ufhv4"]
+[ext_resource type="ArrayMesh" uid="uid://cw1fkyyel7w6r" path="res://assets/kenney_pirate-kit/Models/OBJ format/tool-shovel.obj" id="2_bh32i"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4xadc"]
+radius = 0.6
+height = 3.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_68d3g"]
+transparency = 1
+blend_mode = 3
+emission_enabled = true
+emission = Color(1, 0.45882353, 0, 1)
+emission_energy_multiplier = 7.6
+
+[node name="turboitem" type="Node3D" unique_id=959812621]
+script = ExtResource("1_68d3g")
+item_id = "Turbo"
+nombre = "Turbo"
+duracion = 4.0
+
+[node name="Area3D" type="Area3D" parent="." unique_id=845161091]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1970906441]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_4xadc")
+debug_color = Color(0.70196074, 0, 0.028234383, 0.41960785)
+
+[node name="tool-shovel" parent="." unique_id=1549658716 instance=ExtResource("1_ufhv4")]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="tool-shovel" unique_id=1953467073]
+mesh = ExtResource("2_bh32i")
+surface_material_override/0 = SubResource("StandardMaterial3D_68d3g")

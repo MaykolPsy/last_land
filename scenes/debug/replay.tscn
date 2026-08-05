@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://0umul6a4yvdu"]
 
-[ext_resource type="PackedScene" uid="uid://biahn1llnlh46" path="res://scenes/boat.tscn" id="1_ynirp"]
+[ext_resource type="PackedScene" uid="uid://biahn1llnlh46" path="res://scenes/Boat.tscn" id="1_ynirp"]
 [ext_resource type="Script" uid="uid://dbwt21521y2kc" path="res://scripts/CamaraFollow.gd" id="2_ehbnb"]
 
 [node name="Replay" type="Node3D" unique_id=715910352]

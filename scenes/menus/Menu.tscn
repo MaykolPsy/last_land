@@ -55,7 +55,7 @@ size_flags_vertical = 4
 script = ExtResource("1_jmdev")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1385727174]
-custom_minimum_size = Vector2(420, 600)
+custom_minimum_size = Vector2(300, 500)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -138,7 +138,7 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -100.0
 offset_top = -135.0
-offset_right = 120.0
+offset_right = 118.0
 offset_bottom = -22.0
 grow_horizontal = 2
 grow_vertical = 2
