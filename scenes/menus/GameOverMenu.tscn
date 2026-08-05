@@ -5,16 +5,21 @@
 [ext_resource type="Texture2D" uid="uid://nh3sobmxin71" path="res://assets/BtnRetry.png" id="3_vuicl"]
 [ext_resource type="Texture2D" uid="uid://cbkerx5oncf07" path="res://assets/BtnMenu.png" id="4_4noiy"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_qae0b"]
-line_spacing = 10.0
-font_size = 50
+[sub_resource type="LabelSettings" id="LabelSettings_w420q"]
+font_size = 60
 shadow_size = 15
 shadow_color = Color(0, 0, 0, 0.2509804)
 shadow_offset = Vector2(2, 5)
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4noiy"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l4tjb"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gijjb"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_riy1b"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bx34f"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xcd12"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rkx3p"]
 
 [node name="GameOver" type="Control" unique_id=1969348789]
 layout_mode = 3
@@ -36,70 +41,89 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="Panel" unique_id=1781551395]
+[node name="MarginContainer" type="MarginContainer" parent="Panel" unique_id=691431414]
 custom_minimum_size = Vector2(260, 60)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -400.0
+offset_top = -200.0
+offset_right = 400.0
+offset_bottom = 200.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Overlay" type="TextureRect" parent="Panel/MarginContainer" unique_id=1523015667]
+[node name="Overlay" type="TextureRect" parent="Panel/MarginContainer" unique_id=272002720]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(800, 600)
+custom_minimum_size = Vector2(800, 500)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 size_flags_stretch_ratio = 10.16
 texture = ExtResource("2_qae0b")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer" unique_id=1532421710]
-custom_minimum_size = Vector2(520, 360)
-layout_mode = 2
-theme_override_constants/separation = 25
+[node name="LblDistance" type="Label" parent="Panel/MarginContainer/Overlay" unique_id=702598264]
+unique_name_in_owner = true
+layout_mode = 0
+offset_top = 98.0
+offset_right = 800.0
+offset_bottom = 181.0
+text = "Distance: 0"
+label_settings = SubResource("LabelSettings_w420q")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LblScore" type="Label" parent="Panel/MarginContainer/Overlay" unique_id=207887311]
+unique_name_in_owner = true
+layout_mode = 0
+offset_top = 98.0
+offset_right = 800.0
+offset_bottom = 348.0
+text = "Score: 0"
+label_settings = SubResource("LabelSettings_w420q")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer/Overlay/LblScore" unique_id=1040451220]
+custom_minimum_size = Vector2(120, 100)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -398.0
+offset_top = 65.0
+offset_right = 402.0
+offset_bottom = 185.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 50
 alignment = 1
 
-[node name="LblScore" type="Label" parent="Panel/MarginContainer/VBoxContainer" unique_id=1484349364]
+[node name="RetryButton" type="Button" parent="Panel/MarginContainer/Overlay/LblScore/HBoxContainer" unique_id=1050932756]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(70, 70)
 layout_mode = 2
-text = "Score: 0"
-label_settings = SubResource("LabelSettings_qae0b")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="LblDistance" type="Label" parent="Panel/MarginContainer/VBoxContainer" unique_id=1970088778]
-unique_name_in_owner = true
-layout_mode = 2
-text = "Distance: 0"
-label_settings = SubResource("LabelSettings_qae0b")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="BtnRetry" type="Button" parent="Panel/MarginContainer/VBoxContainer" unique_id=707650140]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(100, 100)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-mouse_default_cursor_shape = 2
-theme_override_styles/normal = SubResource("StyleBoxEmpty_4noiy")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_gijjb")
-action_mode = 0
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxEmpty_l4tjb")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_riy1b")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_bx34f")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_xcd12")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_rkx3p")
 icon = ExtResource("3_vuicl")
-icon_alignment = 1
 expand_icon = true
 
-[node name="BtnMenu" type="Button" parent="Panel/MarginContainer/VBoxContainer" unique_id=280471024]
+[node name="MenuButton" type="Button" parent="Panel/MarginContainer/Overlay/LblScore/HBoxContainer" unique_id=1443765976]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(100, 100)
+custom_minimum_size = Vector2(70, 70)
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-mouse_default_cursor_shape = 2
-theme_override_styles/normal = SubResource("StyleBoxEmpty_4noiy")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_gijjb")
-action_mode = 0
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxEmpty_l4tjb")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_riy1b")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_bx34f")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_xcd12")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_rkx3p")
 icon = ExtResource("4_4noiy")
-icon_alignment = 1
 expand_icon = true

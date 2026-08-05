@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://bpyuk6f02yx2w"]
 
-[ext_resource type="Script" uid="uid://b45a346jjfgje" path="res://scripts/player/hurtbox_3d.gd" id="1_d7ldf"]
+[ext_resource type="Script" uid="uid://b45a346jjfgje" path="res://scripts/player/Hurtbox3d.gd" id="1_d7ldf"]
 [ext_resource type="PackedScene" uid="uid://bemkhqnr3n6ac" path="res://assets/city/Models with Materials/FBX/4Story_Center_Mat.fbx" id="2_rci0u"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_l6jl8"]
-size = Vector3(2.5, 6, 2.1)
+size = Vector3(2.2, 6, 1.9)
 
 [node name="4Story_Center" type="Node3D" unique_id=1762078897]
 
@@ -14,7 +14,7 @@ script = ExtResource("1_d7ldf")
 metadata/_custom_type_script = "uid://b45a346jjfgje"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1769729166]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.16, 2.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
 shape = SubResource("BoxShape3D_l6jl8")
 debug_color = Color(0.9607843, 0, 0, 0.41960785)
 

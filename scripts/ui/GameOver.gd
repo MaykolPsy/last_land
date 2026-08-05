@@ -4,8 +4,8 @@ const MAIN_MENU_SCENE := "res://scenes/menus/MainMenu.tscn"
 
 @onready var lbl_score: Label = %LblScore
 @onready var lbl_distance: Label = %LblDistance
-@onready var btn_retry: Button = %BtnRetry
-@onready var btn_main_menu: Button = %BtnMenu
+@onready var btn_retry: Button = %RetryButton
+@onready var btn_main_menu: Button = %MenuButton
 
 func _ready() -> void:
 	

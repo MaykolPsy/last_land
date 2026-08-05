@@ -4,16 +4,23 @@
 [ext_resource type="Texture2D" uid="uid://bmjrccapmlj6i" path="res://assets/pergamino.webp" id="2_5w6ei"]
 [ext_resource type="Texture2D" uid="uid://kcxe8vhnxaun" path="res://assets/BtnPlay.png" id="2_komsw"]
 [ext_resource type="Texture2D" uid="uid://cbkerx5oncf07" path="res://assets/BtnMenu.png" id="3_5w6ei"]
+[ext_resource type="Texture2D" uid="uid://nh3sobmxin71" path="res://assets/BtnRetry.png" id="4_di1ay"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_komsw"]
+[sub_resource type="LabelSettings" id="LabelSettings_muldy"]
 font_size = 60
 shadow_size = 15
 shadow_color = Color(0, 0, 0, 0.2509804)
 shadow_offset = Vector2(2, 5)
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5w6ei"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kkpll"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jiu6o"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jf1wh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_scaad"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ej3l0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5aqq5"]
 
 [node name="PauseMenu" type="Control" unique_id=1378695441]
 layout_mode = 3
@@ -46,53 +53,78 @@ grow_vertical = 2
 
 [node name="Overlay" type="TextureRect" parent="Panel/MarginContainer" unique_id=420488243]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(800, 600)
+custom_minimum_size = Vector2(800, 400)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 size_flags_stretch_ratio = 10.16
 texture = ExtResource("2_5w6ei")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer" unique_id=496808631]
-custom_minimum_size = Vector2(520, 360)
-layout_mode = 2
-theme_override_constants/separation = 40
-alignment = 1
-
-[node name="Title" type="Label" parent="Panel/MarginContainer/VBoxContainer" unique_id=831600359]
+[node name="Title" type="Label" parent="Panel/MarginContainer/Overlay" unique_id=1788289269]
 unique_name_in_owner = true
-layout_mode = 2
-text = "PAUSE"
-label_settings = SubResource("LabelSettings_komsw")
+layout_mode = 0
+offset_top = 98.0
+offset_right = 800.0
+offset_bottom = 181.0
+text = "PAUSE MENU"
+label_settings = SubResource("LabelSettings_muldy")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="PlayButton" type="Button" parent="Panel/MarginContainer/VBoxContainer" unique_id=932912129]
-custom_minimum_size = Vector2(100, 100)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-mouse_default_cursor_shape = 2
-theme_override_styles/normal = SubResource("StyleBoxEmpty_5w6ei")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_jiu6o")
-action_mode = 0
-icon = ExtResource("2_komsw")
-icon_alignment = 1
-expand_icon = true
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer/Overlay/Title" unique_id=1696135039]
+custom_minimum_size = Vector2(120, 100)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -398.0
+offset_top = 58.5
+offset_right = 402.0
+offset_bottom = 178.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 50
+alignment = 1
 
-[node name="MenuButton" type="Button" parent="Panel/MarginContainer/VBoxContainer" unique_id=2085622238]
+[node name="PlayButton" type="Button" parent="Panel/MarginContainer/Overlay/Title/HBoxContainer" unique_id=390673688]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(100, 100)
+custom_minimum_size = Vector2(70, 70)
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-mouse_default_cursor_shape = 2
-theme_override_styles/normal = SubResource("StyleBoxEmpty_5w6ei")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_jiu6o")
-action_mode = 0
-icon = ExtResource("3_5w6ei")
-icon_alignment = 1
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxEmpty_kkpll")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_jf1wh")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_scaad")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ej3l0")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_5aqq5")
+text = "
+"
+icon = ExtResource("2_komsw")
 expand_icon = true
 
-[connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
-[connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/MenuButton" to="." method="_on_menu_button_pressed"]
+[node name="RetryButton" type="Button" parent="Panel/MarginContainer/Overlay/Title/HBoxContainer" unique_id=618036378]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(70, 70)
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxEmpty_kkpll")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_jf1wh")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_scaad")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ej3l0")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_5aqq5")
+icon = ExtResource("4_di1ay")
+expand_icon = true
+
+[node name="MenuButton" type="Button" parent="Panel/MarginContainer/Overlay/Title/HBoxContainer" unique_id=1424564722]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(70, 70)
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxEmpty_kkpll")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_jf1wh")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_scaad")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ej3l0")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_5aqq5")
+icon = ExtResource("3_5w6ei")
+expand_icon = true

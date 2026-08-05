@@ -5,46 +5,87 @@ var finished: bool = false
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
-	print("[LRC] READY path=", get_path())
+
+	# Arranque limpio SIEMPRE (importante al correr escena suelta/restart)
+	get_tree().paused = false
+	finished = false
+
+	if ScoreManager and ScoreManager.has_method("reset_run"):
+		ScoreManager.reset_run()
+	elif ScoreManager and ScoreManager.has_method("reset"):
+		ScoreManager.reset()
+
+	# fuerza gameplay
+	if GameStateManager.current_state != GameStateManager.GameState.STORY:
+		GameStateManager.change_state(GameStateManager.GameState.STORY)
 
 	if EventBus and EventBus.has_signal("game_started"):
 		if not EventBus.game_started.is_connected(_on_game_started):
 			EventBus.game_started.connect(_on_game_started)
+		EventBus.game_started.emit()
 
-	reset_run()
+func _exit_tree() -> void:
+	if EventBus and EventBus.has_signal("game_started"):
+		if EventBus.game_started.is_connected(_on_game_started):
+			EventBus.game_started.disconnect(_on_game_started)
 
-func _on_game_started() -> void:
-	start_run()
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("ui_cancel"):
+		_toggle_pause_with_menu()
+		get_viewport().set_input_as_handled()
 
-func start_run() -> void:
-	print("[LRC] START_RUN called path=", get_path())
-	reset_run()
-	get_tree().paused = false
+func _toggle_pause_with_menu() -> void:
+	var st := GameStateManager.current_state
+
+	if st == GameStateManager.GameState.MENU \
+	or st == GameStateManager.GameState.GAME_OVER \
+	or st == GameStateManager.GameState.VICTORY:
+		return
 
 	var scene := get_tree().current_scene
-	_set_ui_visible(scene, "Menu", false)
-	_set_ui_visible(scene, "PauseMenu", false)
-	_set_ui_visible(scene, "Victory", false)
-	_set_ui_visible(scene, "GameOver", false)
+	if scene == null:
+		return
 
-	print("[LRC] start_run paused=", get_tree().paused)
+	var pause_menu := scene.find_child("PauseMenu", true, false)
+	if pause_menu == null:
+		push_error("No se encontró PauseMenu")
+		return
 
-func reset_run() -> void:
+	if st == GameStateManager.GameState.PAUSED:
+		if pause_menu.has_method("hide_pause"):
+			pause_menu.call("hide_pause")
+	else:
+		if pause_menu.has_method("show_pause"):
+			pause_menu.call("show_pause")
+
+func _on_game_started() -> void:
+	if not is_inside_tree():
+		return
+
 	finished = false
+	get_tree().paused = false
+
+	var st := GameStateManager.current_state
+	if st != GameStateManager.GameState.STORY and st != GameStateManager.GameState.INFINITE:
+		GameStateManager.change_state(GameStateManager.GameState.STORY)
 
 func _process(_delta: float) -> void:
-	if finished:
+	if finished or not is_inside_tree():
+		return
+
+	if GameStateManager.current_state != GameStateManager.GameState.STORY:
 		return
 
 	if ScoreManager.get_distance() >= LevelFlowManager.get_current_goal():
 		finished = true
 		GameStateManager.change_state(GameStateManager.GameState.VICTORY)
-		EventBus.game_won.emit()
-		print("[LRC] VICTORY reached")
 
-func _set_ui_visible(scene: Node, node_name: String, is_visible: bool) -> void:
-	if scene == null:
-		return
-	var node := scene.find_child(node_name, true, false)
-	if node and node is CanvasItem:
-		(node as CanvasItem).visible = is_visible
+		var scene := get_tree().current_scene
+		if scene == null:
+			return
+
+		var victory_menu := scene.find_child("VictoryMenu", true, false)
+		if victory_menu and victory_menu.has_method("show_victory"):
+			victory_menu.show_victory()
+		else:
+			push_error("No se encontró VictoryMenu o no tiene show_victory()")

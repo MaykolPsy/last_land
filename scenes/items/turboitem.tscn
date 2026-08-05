@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://4soe46wnwfld"]
 
+[ext_resource type="Script" uid="uid://c0rfr5deeumh2" path="res://scripts/items/TurboItem.gd" id="1_68d3g"]
 [ext_resource type="PackedScene" uid="uid://xpoj1ncc6px4" path="res://assets/kenney_pirate-kit/Models/FBX format/tool-shovel.fbx" id="1_ufhv4"]
 [ext_resource type="ArrayMesh" uid="uid://cw1fkyyel7w6r" path="res://assets/kenney_pirate-kit/Models/OBJ format/tool-shovel.obj" id="2_bh32i"]
 
@@ -15,6 +16,10 @@ emission = Color(1, 0.45882353, 0, 1)
 emission_energy_multiplier = 7.6
 
 [node name="turboitem" type="Node3D" unique_id=959812621]
+script = ExtResource("1_68d3g")
+item_id = "Turbo"
+nombre = "Turbo"
+duracion = 4.0
 
 [node name="Area3D" type="Area3D" parent="." unique_id=845161091]
 

@@ -9,7 +9,7 @@ func _ready() -> void:
 
 	pause_menu = find_child("PauseMenu", true, false)
 	menu = find_child("Menu", true, false) as CanvasItem
-	victory = find_child("Victory", true, false) as CanvasItem
+	victory = find_child("VictoryMenu", true, false) as CanvasItem
 
 	if menu: menu.visible = true
 	if pause_menu and pause_menu.has_method("hide_pause"): pause_menu.call("hide_pause")

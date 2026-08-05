@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://c37eutainhop6"]
 
-[ext_resource type="Script" uid="uid://b45a346jjfgje" path="res://scripts/player/hurtbox_3d.gd" id="1_hd0rh"]
+[ext_resource type="Script" uid="uid://b45a346jjfgje" path="res://scripts/player/Hurtbox3d.gd" id="1_hd0rh"]
 [ext_resource type="PackedScene" uid="uid://wlq2hlw2tjtw" path="res://assets/kenney_pirate-kit/Models/FBX format/rocks-b.fbx" id="2_2yp8y"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3csh2"]
-radius = 2.5
+radius = 2.0
 height = 7.0
 
 [node name="rocks-b" type="Node3D" unique_id=1762078897]

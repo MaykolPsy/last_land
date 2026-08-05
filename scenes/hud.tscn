@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://3fp342rv4w30"]
 
-[ext_resource type="Script" uid="uid://b10lyjs04oiqo" path="res://scripts/core/hud.gd" id="1_ahhtf"]
+[ext_resource type="Script" uid="uid://b10lyjs04oiqo" path="res://scripts/core/Hud.gd" id="1_ahhtf"]
 [ext_resource type="Texture2D" uid="uid://5xno6xnmf8kq" path="res://assets/BtnPause.png" id="2_oo0fn"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_oo0fn"]

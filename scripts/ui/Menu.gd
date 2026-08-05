@@ -1,59 +1,29 @@
 extends Control
 
-@onready var panel: Control = $TextureRect
 @onready var btn_play: Button = %PlayButton
 @onready var btn_exit: Button = %ExitButton
 @onready var btn_options: Button = %OptionsButton
-@onready var boat_pivot: Node3D = get_tree().current_scene.find_child("BoatPivot", true, false) as Node3D
 
-var play_started: bool = false
+var play_started := false
 
-func _print_tree(node: Node, depth: int = 0) -> void:
-	print("  ".repeat(depth), node.name, " (", node.get_class(), ")")
-	for child in node.get_children():
-		_print_tree(child, depth + 1)
-		
 func _ready() -> void:
-	
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	visible = true
+	modulate.a = 1.0
 	play_started = false
 
 	_style_button_line_hover(btn_play)
 	_style_button_line_hover(btn_exit)
 	_style_button_line_hover(btn_options)
 
-	get_tree().paused = false
-	_setup_initial_state()
-	_play_intro_animation()
-
-	if not btn_play.pressed.is_connected(_on_play_pressed):
+	if btn_play and not btn_play.pressed.is_connected(_on_play_pressed):
 		btn_play.pressed.connect(_on_play_pressed)
-	if not btn_exit.pressed.is_connected(_on_quit_pressed):
+	if btn_exit and not btn_exit.pressed.is_connected(_on_quit_pressed):
 		btn_exit.pressed.connect(_on_quit_pressed)
 
-func _process(delta: float) -> void:
-	if not visible or play_started:
-		return
-	if boat_pivot:
-		boat_pivot.rotation.y += 0.15 * delta
+func _process(_delta: float) -> void:
+	pass
 
-func _setup_initial_state() -> void:
-	panel.modulate.a = 0.0
-	panel.position.y += 40.0
-	btn_play.disabled = true
-	btn_exit.disabled = true
-	btn_options.disabled = true
-
-func _play_intro_animation() -> void:
-	var tw := create_tween()
-	tw.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
-	tw.tween_property(panel, "modulate:a", 1.0, 0.35)
-	tw.parallel().tween_property(panel, "position:y", panel.position.y - 40.0, 0.45)
-	await tw.finished
-	btn_play.disabled = false
-	btn_exit.disabled = false
-	btn_options.disabled = false
 
 func _on_play_pressed() -> void:
 	if play_started:
@@ -61,26 +31,17 @@ func _on_play_pressed() -> void:
 	play_started = true
 	_disable_buttons()
 	visible = false
+	get_tree().paused = false
 	GameStateManager.change_state(GameStateManager.GameState.STORY)
-	SceneManager.change_scene("res://scenes/levels/Level_01_Water.tscn")
-	EventBus.game_started.emit()	
-		
+	get_tree().change_scene_to_file("res://scenes/levels/Level_02_Islands.tscn")
 func _on_quit_pressed() -> void:
 	_disable_buttons()
-	await _play_out_animation()
 	get_tree().quit()
 
 func _disable_buttons() -> void:
-	btn_play.disabled = true
-	btn_exit.disabled = true
-	btn_options.disabled = true
-
-func _play_out_animation() -> void:
-	var tw := create_tween()
-	tw.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN)
-	tw.tween_property(panel, "modulate:a", 0.0, 0.25)
-	tw.parallel().tween_property(panel, "position:y", panel.position.y + 25.0, 0.25)
-	await tw.finished
+	if btn_play: btn_play.disabled = true
+	if btn_exit: btn_exit.disabled = true
+	if btn_options: btn_options.disabled = true
 
 func _style_button_line_hover(btn: Button) -> void:
 	if btn == null:

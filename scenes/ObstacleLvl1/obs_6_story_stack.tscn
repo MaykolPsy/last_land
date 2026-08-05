@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://0phvl3bja52j"]
 
-[ext_resource type="Script" uid="uid://b45a346jjfgje" path="res://scripts/player/hurtbox_3d.gd" id="1_5ywvt"]
+[ext_resource type="Script" uid="uid://b45a346jjfgje" path="res://scripts/player/Hurtbox3d.gd" id="1_5ywvt"]
 [ext_resource type="PackedScene" uid="uid://c3lscmn1y8c48" path="res://assets/city/Models with Materials/FBX/6Story_Stack_Mat.fbx" id="2_168jp"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2plif"]
-size = Vector3(2, 8, 2.1)
+size = Vector3(1.8, 8, 1.8)
 
 [node name="6Story_Stack" type="Node3D" unique_id=1762078897]
 

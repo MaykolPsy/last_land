@@ -21,10 +21,6 @@ func _ready() -> void:
 	_bind()
 	_apply_to_shader()
 
-func _process(_delta: float) -> void:
-	# si cambias en runtime, se refleja
-	_apply_to_shader()
-
 func _bind() -> void:
 	ocean_mesh = get_node_or_null(mesh_path) as MeshInstance3D
 	if ocean_mesh == null:
